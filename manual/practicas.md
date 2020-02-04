@@ -18,7 +18,7 @@ Descripción| Materiales | Diagrama pictórico
 1.2.3 Parpadear LED con un intervalo de un cuarto de segundo (**tmr**) |2 Led<br>2 R220|![practica 2](imgs/1.2_pract.png)
 **1.2.4 Parpadear LED con un intervalo de medio segundo y de un segundo** (**tmr**)|2 Led<br>2 R220|![practica 2](imgs/1.2_pract.png)
 1.2.5 Realizar un **semaforo** sencillo |3 Led<br>3 R220|![practica 2](imgs/1.2.4_pract.png)
-**1.2.6 Realizar dos semáforos en una intersección, deben trabajar complementariamente**|3 Led<br>3 R220|![practica 2](https://i2.wp.com/www.ingmecafenix.com/wp-content/uploads/2017/05/semaforo-con-pic.jpg?fit=600%2C300&ssl=1)
+**1.2.6 Realizar dos semáforos en una intersección, deben trabajar complementariamente**|3 Led<br>3 R220|![practica 2](imgs/semaforo.jpg)
 
 ## 2. Control I/O (If)
 

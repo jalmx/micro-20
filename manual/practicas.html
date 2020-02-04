@@ -81,13 +81,55 @@
 <td><img src="imgs/1.2.4_pract.png" alt="practica 2"></td>
 </tr>
 <tr>
-<td>1.2.6 Realizar dos semáforos en una intersección, deben trabajar complementariamente</td>
+<td><strong>1.2.6 Realizar dos semáforos en una intersección, deben trabajar complementariamente</strong></td>
 <td>3 Led<br>3 R220</td>
-<td><img src="https://i2.wp.com/www.ingmecafenix.com/wp-content/uploads/2017/05/semaforo-con-pic.jpg?fit=600%2C300&amp;ssl=1" alt="practica 2"></td>
+<td><img src="imgs/semaforo.jpg" alt="practica 2"></td>
 </tr>
 </tbody>
 </table>
 <h2 id="2-control-io-if">2. Control I/O (If)</h2>
+<h3 id="operadores-de-relaci%c3%b3n">Operadores de relación</h3>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Símbolo</th>
+<th>Sintaxis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mayor que</td>
+<td><strong>&gt;</strong></td>
+<td>3 &gt; 1</td>
+</tr>
+<tr>
+<td>Mayor o igual que</td>
+<td><strong>&gt;=</strong></td>
+<td>3 &gt;= 1</td>
+</tr>
+<tr>
+<td>Menor que</td>
+<td><strong>&lt;</strong></td>
+<td>3 &lt; 1</td>
+</tr>
+<tr>
+<td>Menor o igual que</td>
+<td><strong>&lt;=</strong></td>
+<td>3 &gt; 1</td>
+</tr>
+<tr>
+<td>Igual que</td>
+<td><strong>==</strong></td>
+<td>4 == 4</td>
+</tr>
+<tr>
+<td>Diferente de</td>
+<td><strong>~=</strong></td>
+<td>4 ~= 4</td>
+</tr>
+</tbody>
+</table>
 <h3 id="21-leer-push-button-y-encender-led">2.1 Leer push button y encender led</h3>
 <table>
 <thead>
@@ -130,9 +172,54 @@
 </tr>
 </tbody>
 </table>
-<!-- TODO: practicas con OPERADORES LOGICOS -->
-<!-- x.x.x ... Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button debe parpadear a 1/4 de segundo, encendido su respectivo LED (**operadores lógicos**)|2 Led<br>2 R1k<br>1 push button|![practica 3](imgs/2.1.4_pract.png)
-x.x.x ... Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button debe parpadear a 1/4 de segundo, encendido su respectivo LED; en caso que sean presionados ambos push button al mismo tiempo los leds van a parpadear juntos cada 200mS (**operadores lógicos**)|2 Led<br>2 R1k<br>1 push button|![practica 3](imgs/2.1.4_pract.png) -->
+<h3 id="22-operadores-l%c3%b3gicos">2.2 Operadores lógicos</h3>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Símbolo</th>
+<th>Sintaxis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compuerta And</td>
+<td><strong>and</strong></td>
+<td>(3 &gt; 4) and (1 == 1)</td>
+</tr>
+<tr>
+<td>Compuerta OR</td>
+<td><strong>or</strong></td>
+<td>(4 &lt; 5) or (5 ~= 3)</td>
+</tr>
+<tr>
+<td>Compuerta NOT</td>
+<td><strong>not</strong></td>
+<td>not (5 &lt; 2)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Descripción</th>
+<th>Materiales</th>
+<th>Diagrama pictórico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.2.1 Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button debe parpadear a 1/4 de segundo, encendido su respectivo LED</td>
+<td>2 Led<br>2 R1k<br>1 push button</td>
+<td><img src="imgs/2.1.4_pract.png" alt="practica 3"></td>
+</tr>
+<tr>
+<td>2.2.2 Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button debe parpadear a 1/4 de segundo, encendido su respectivo LED; en caso que sean presionados ambos push button al mismo tiempo los leds van a parpadear juntos cada 200mS</td>
+<td>2 Led<br>2 R1k<br>1 push button</td>
+<td><img src="imgs/2.1.4_pract.png" alt="practica 3"></td>
+</tr>
+</tbody>
+</table>
 <h2 id="3-display-de-7-segmentos">3 Display de 7 segmentos</h2>
 <h4 id="display">Display</h4>
 <p>Display de 7 segmentos puede ser de ánodo o cátodo común; existen displays con mayores segmentos, hasta una matriz de puntos de diferentes resoluciones.</p>
