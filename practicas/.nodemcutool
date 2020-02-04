@@ -1,7 +1,9 @@
 {
     "baudrate": "115200",
-    "port": "/dev/tty.SLAB_USBtoUART",
+    "port": "/dev/tty.wchusbserial1420",
     "minify": false,
     "compile": false,
     "keeppath": false
 }
+
+ 

@@ -44,7 +44,7 @@
 - Secuencia de leds básico
 - IF, IF-ELSE
   - On-off
-  - Blick
+  - Blink
   - Sensor PIR
   - incrementa el numero con 7-Seg por cada pulso
   - Switch magnetico
