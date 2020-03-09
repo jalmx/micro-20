@@ -14,7 +14,7 @@
 - [ ] Buzzer
 - [ ] MQ-2 Gas
 - [ ] Ultrasonico
-- [ ] 
+- [ ] LCD I2C
 
 ## Software
 

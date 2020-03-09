@@ -1,11 +1,11 @@
 -- Declarión de variables  -- salidas
-local A = 2
-local B = 3
-local C = 4
-local D = 5
-local E = 6
-local F = 7
-local G = 8
+local A = 0
+local B = 1
+local C = 2
+local D = 3
+local E = 4
+local F = 5
+local G = 6
 
 -- configuración de pines 
 gpio.mode(A, gpio.OUTPUT)
@@ -32,17 +32,17 @@ valor = 0
 -- configuración I/O
 while 1 do 
     print(valor)
-
+-- A B C D E F G
     if valor == 1 then 
-        display(0, 0, 0, 1, 1, 0, 0) -- 1 
+        display(0, 1, 1, 0, 0, 0, 0) -- 1 
     elseif valor == 2 then 
-        display(0, 1, 1, 0, 1, 1, 1) -- 2 
+        display(1,1,0,1,1,0,1) -- 2 
     elseif valor == 3 then 
-        display(0, 0, 1, 1, 1, 1, 1) -- 3 
+        display(1,1,1,1,0,0,1) -- 3 
     elseif valor == 4 then 
-        display(1, 0, 0, 1, 1, 0, 1) -- 4 
+        display(0,1,1,0,0,1,1) -- 4 
     elseif valor == 5 then 
-        display(1, 0, 1, 1, 0, 1, 1) -- 5 
+        display(1,0,1,1,0,1,1) -- 5 
     --continuar con el conteo <----
     elseif valor > 5 then  --reinicio el contador
         valor=0

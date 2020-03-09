@@ -1,299 +1,457 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Prácticas</title>
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-        
-        <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
-</style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        
-        
-    </head>
-    <body class="vscode-light">
-        <h1 id="pr%c3%a1cticas">Prácticas</h1>
-<h2 id="1-control-de-salidas">1. Control de salidas</h2>
-<h3 id="11-encender-led">1.1. Encender LED</h3>
-<table>
-<thead>
-<tr>
-<th>Descripción</th>
-<th>Materiales</th>
-<th>Diagrama pictórico</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.1.1 Configuración de salidas desde archivo</td>
-<td>1 Led<br>1 R220</td>
-<td><img src="imgs/1.1_pract.png" alt="practica 1"></td>
-</tr>
-<tr>
-<td>1.1.2 Manejo de terminal y configurando pines</td>
-<td>1 Led<br>1 R220</td>
-<td><img src="imgs/1.1_pract.png" alt="practica 1"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="12-encender-m%c3%a1s-leds">1.2 Encender más LEDs</h3>
-<table>
-<thead>
-<tr>
-<th>Descripción</th>
-<th>Materiales</th>
-<th>Diagrama pictórico</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.2.1 Control de más salidas y su configuración</td>
-<td>2 Led<br>2 R220</td>
-<td><img src="imgs/1.2_pract.png" alt="practica 2"></td>
-</tr>
-<tr>
-<td><strong>1.2.2 Control de más salidas y su configuración</strong></td>
-<td>x Led<br>x R220</td>
-<td><img src="imgs/1.2.2_pract.png" alt="practica 2"></td>
-</tr>
-<tr>
-<td>1.2.3 Parpadear LED con un intervalo de un cuarto de segundo (<strong>tmr</strong>)</td>
-<td>2 Led<br>2 R220</td>
-<td><img src="imgs/1.2_pract.png" alt="practica 2"></td>
-</tr>
-<tr>
-<td><strong>1.2.4 Parpadear LED con un intervalo de medio segundo y de un segundo</strong> (<strong>tmr</strong>)</td>
-<td>2 Led<br>2 R220</td>
-<td><img src="imgs/1.2_pract.png" alt="practica 2"></td>
-</tr>
-<tr>
-<td>1.2.5 Realizar un <strong>semaforo</strong> sencillo</td>
-<td>3 Led<br>3 R220</td>
-<td><img src="imgs/1.2.4_pract.png" alt="practica 2"></td>
-</tr>
-<tr>
-<td><strong>1.2.6 Realizar dos semáforos en una intersección, deben trabajar complementariamente</strong></td>
-<td>3 Led<br>3 R220</td>
-<td><img src="imgs/semaforo.jpg" alt="practica 2"></td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-control-io-if">2. Control I/O (If)</h2>
-<h3 id="operadores-de-relaci%c3%b3n">Operadores de relación</h3>
-<table>
-<thead>
-<tr>
-<th>Nombre</th>
-<th>Símbolo</th>
-<th>Sintaxis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mayor que</td>
-<td><strong>&gt;</strong></td>
-<td>3 &gt; 1</td>
-</tr>
-<tr>
-<td>Mayor o igual que</td>
-<td><strong>&gt;=</strong></td>
-<td>3 &gt;= 1</td>
-</tr>
-<tr>
-<td>Menor que</td>
-<td><strong>&lt;</strong></td>
-<td>3 &lt; 1</td>
-</tr>
-<tr>
-<td>Menor o igual que</td>
-<td><strong>&lt;=</strong></td>
-<td>3 &gt; 1</td>
-</tr>
-<tr>
-<td>Igual que</td>
-<td><strong>==</strong></td>
-<td>4 == 4</td>
-</tr>
-<tr>
-<td>Diferente de</td>
-<td><strong>~=</strong></td>
-<td>4 ~= 4</td>
-</tr>
-</tbody>
-</table>
-<h3 id="21-leer-push-button-y-encender-led">2.1 Leer push button y encender led</h3>
-<table>
-<thead>
-<tr>
-<th>Descripción</th>
-<th>Materiales</th>
-<th>Diagrama pictórico</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2.1.1 Leer una entrada digital, encenderá el LED mientras se mantenga presionado el push button</td>
-<td>1 Led<br>1 R1k<br>1 R220<br>1 push button</td>
-<td><img src="imgs/2.1.1_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td><strong>2.1.2 Mientras se presione el botón los LEDs deben parpadear medio segundo</strong></td>
-<td>1 Led<br>1 R1k<br>1 R220<br>1 push button</td>
-<td><img src="imgs/2.1.1_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td>2.1.3 Control de 2 leds por medio de un push button; mientras se mantiene presionado el push button deben estar encendidos los leds, de lo contrario estrán apagados</td>
-<td>2 Led<br>2 R1k<br>1 push button</td>
-<td><img src="imgs/2.1.3_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td>2.1.4 Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button debe matenerse encendido su respectivo LED</td>
-<td>2 Led<br>2 R1k<br>1 push button</td>
-<td><img src="imgs/2.1.4_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td>2.1.5 <strong>Toggle</strong>: Al presionar el push button se debe encender el led y mantenerce en ese estado; hasta que se vuelva a presionar el led regresará a su estado anterior</td>
-<td>2 Led<br>2 R1k<br>1 push button</td>
-<td><img src="imgs/2.1.1_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td>2.1.6 <strong>Toggle</strong>: Control de 2 leds, cada uno con su propio push button, al presionar el push button se debe encender su respectivo led y mantenerce en ese estado; hasta que se vuelva a presionar el led regresará a su estado anterior</td>
-<td>2 Led<br>2 R1k<br>1 push button</td>
-<td><img src="imgs/2.1.4_pract.png" alt="practica 3"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="22-operadores-l%c3%b3gicos">2.2 Operadores lógicos</h3>
-<table>
-<thead>
-<tr>
-<th>Nombre</th>
-<th>Símbolo</th>
-<th>Sintaxis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Compuerta And</td>
-<td><strong>and</strong></td>
-<td>(3 &gt; 4) and (1 == 1)</td>
-</tr>
-<tr>
-<td>Compuerta OR</td>
-<td><strong>or</strong></td>
-<td>(4 &lt; 5) or (5 ~= 3)</td>
-</tr>
-<tr>
-<td>Compuerta NOT</td>
-<td><strong>not</strong></td>
-<td>not (5 &lt; 2)</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Descripción</th>
-<th>Materiales</th>
-<th>Diagrama pictórico</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2.2.1 Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button debe parpadear a 1/4 de segundo, encendido su respectivo LED</td>
-<td>2 Led<br>2 R1k<br>1 push button</td>
-<td><img src="imgs/2.1.4_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td>2.2.2 Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button debe parpadear a 1/4 de segundo, encendido su respectivo LED; en caso que sean presionados ambos push button al mismo tiempo los leds van a parpadear juntos cada 200mS</td>
-<td>2 Led<br>2 R1k<br>1 push button</td>
-<td><img src="imgs/2.1.4_pract.png" alt="practica 3"></td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-display-de-7-segmentos">3 Display de 7 segmentos</h2>
-<h4 id="display">Display</h4>
-<p>Display de 7 segmentos puede ser de ánodo o cátodo común; existen displays con mayores segmentos, hasta una matriz de puntos de diferentes resoluciones.</p>
-<p><img src="imgs/display.png" alt="display"></p>
-<table>
-<thead>
-<tr>
-<th>Descripción</th>
-<th>Materiales</th>
-<th>Diagrama pictórico</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>3.1.1 Creación de un contador básico con un display de 7 segmentos, el cual comenzará en 0 y terminará en F, haciendo un conteo hexadecimal, el intervalo de tiempo será de medio segundo</td>
-<td>1 display de 7-segmentos, una vez que termine se reinicia automáticamente<br>7 R220</td>
-<td><img src="imgs/3.1.1_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td><strong>3.1.2 Creación de un contador básico con un display de 7 segmentos, el cual comenzará en 0 y terminará en F, haciendo un conteo hexadecimal, el intercambio de digito será atraves de un push button</strong></td>
-<td>1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k</td>
-<td><img src="imgs/3.1.1_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td><strong>3.1.3 Crear un mensaje que se vaya leyendo en el display de 7 segmentos que diga &quot;HOLA&quot;, el intervalor de cada letra será de medio segundo</strong></td>
-<td>1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k</td>
-<td><img src="imgs/3.1.1_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td><strong>3.1.4 Crear un mensaje que se vaya leyendo en el display de 7 segmentos, <em>tu elijes la palabra o frase</em>, el intervalor de cada letra será de medio segundo</strong></td>
-<td>1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k</td>
-<td><img src="imgs/3.1.1_pract.png" alt="practica 3"></td>
-</tr>
-<tr>
-<td>3.1.5 Creación de un contador básico con un display de 7 segmentos, el cual comenzará en 0 y terminará en F, el cambio se hará cada vez que sea presionado un push button</td>
-<td>1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k</td>
-<td><img src="imgs/3.1.4_pract.png" alt="practica 3"></td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-control-de-motores">4 Control de motores</h2>
-<ul>
-<li>Control de un motor DC</li>
-</ul>
-<h2 id="5-ciclos-while">5 Ciclos (while)</h2>
-<ul>
-<li>Secuencia de luces</li>
-<li>7 segmentos con valores guardados</li>
-</ul>
-<h2 id="6-protocolos-digitales">6 Protocolos digitales</h2>
-<ul>
-<li>LCD (Mensajes)</li>
-<li>DTH11</li>
-</ul>
-<h2 id="7-entradas-%c3%a1nalogicas-adc">7 Entradas ánalogicas (ADC)</h2>
-<ul>
-<li>Mostrar temperatura(LM35) en LCD</li>
-<li>Control de motores DC en la pantalla</li>
-</ul>
-<h2 id="8-salidas-%c3%a1nalogicas-pwm">8 Salidas ánalogicas (PWM)</h2>
-<ul>
-<li>Control de un motor DC</li>
-<li>Posición de un servo</li>
-<li>Led RGB</li>
-</ul>
-<!-- TODO: Ejercicios con arrays
-x.x.x... En memeria se contendrán diferentes mensajes, y cada vez que se presione el push button, debe cambiar el mensaje, los mensaje son: <br>-**"cbtis-85"**<br>- **"coatza"<br>- *Tu creas tu propio mensaje*|1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k|![practica 3](imgs/3.1.4_pract.png) -->
-<h1 id="revisar-el-manual-y-ver-que-otras-practicas-se-pueden-hacer-antes-de-entrar-a-sensores">Revisar el manual y ver que otras practicas se pueden hacer antes de entrar a sensores</h1>
-<h3 id="dth11-sensor-de-temperatura-y-humedad">DTH11 Sensor de temperatura y humedad</h3>
-<h3 id="sensor-de-flama">Sensor de flama</h3>
-<h2 id="pr%c3%a1cticas-con-adc">Prácticas con ADC</h2>
-<h3 id="leer-un-potenciometro">Leer un potenciometro</h3>
-<h3 id="lm35-temp">LM35 (Temp)</h3>
-<h3 id="sensor-de-sonido-adc">Sensor de sonido (ADC)</h3>
+<html>
 
-    </body>
-    </html>
+<head>
+    <meta charset="UTF-8">
+    <title>Prácticas</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+        }
+    </style>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="vscode-light">
+    <h1 id="pr%c3%a1cticas">Prácticas</h1>
+    <h2 id="1-control-de-salidas">1. Control de salidas</h2>
+    <h3 id="11-encender-led">1.1. Encender LED</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Materiales</th>
+                <th>Diagrama pictórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.1.1 Configuración de salidas desde archivo</td>
+                <td>1 Led<br>1 R220</td>
+                <td><img src="imgs/1.1_pract.png"
+                        alt="practica 1"></td>
+            </tr>
+            <tr>
+                <td>1.1.2 Manejo de terminal y configurando pines</td>
+                <td>1 Led<br>1 R220</td>
+                <td><img src="imgs/1.1_pract.png"
+                        alt="practica 1"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 id="12-encender-m%c3%a1s-leds">1.2 Encender más LEDs</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Materiales</th>
+                <th>Diagrama pictórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.2.1 Control de más salidas y su configuración</td>
+                <td>2 Led<br>2 R220</td>
+                <td><img src="imgs/1.2_pract.png"
+                        alt="practica 2"></td>
+            </tr>
+            <tr>
+                <td><strong>1.2.2 Control de más salidas y su configuración</strong></td>
+                <td>x Led<br>x R220</td>
+                <td><img src="imgs/1.2.2_pract.png"
+                        alt="practica 2"></td>
+            </tr>
+            <tr>
+                <td>1.2.3 Parpadear LED con un intervalo de un cuarto de segundo (<strong>tmr</strong>)</td>
+                <td>2 Led<br>2 R220</td>
+                <td><img src="imgs/1.2_pract.png"
+                        alt="practica 2"></td>
+            </tr>
+            <tr>
+                <td><strong>1.2.4 Parpadear LED con un intervalo de medio segundo y de un segundo</strong>
+                    (<strong>tmr</strong>)</td>
+                <td>2 Led<br>2 R220</td>
+                <td><img src="imgs/1.2_pract.png"
+                        alt="practica 2"></td>
+            </tr>
+            <tr>
+                <td>1.2.5 Realizar un <strong>semaforo</strong> sencillo</td>
+                <td>3 Led<br>3 R220</td>
+                <td><img src="imgs/1.2.4_pract.png"
+                        alt="practica 2"></td>
+            </tr>
+            <tr>
+                <td><strong>1.2.6 Realizar dos semáforos en una intersección, deben trabajar
+                        complementariamente</strong></td>
+                <td>3 Led<br>3 R220</td>
+                <td><img src="imgs/semaforo.jpg"
+                        alt="practica 2"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 id="2-control-io">2. Control I/O</h2>
+    <h3 id="operadores-de-relaci%c3%b3n">Operadores de relación</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th style="text-align:center">Símbolo</th>
+                <th style="text-align:center">Sintaxis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mayor que</td>
+                <td style="text-align:center"><strong>&gt;</strong></td>
+                <td style="text-align:center">3 &gt; 1</td>
+            </tr>
+            <tr>
+                <td>Mayor o igual que</td>
+                <td style="text-align:center"><strong>&gt;=</strong></td>
+                <td style="text-align:center">3 &gt;= 1</td>
+            </tr>
+            <tr>
+                <td>Menor que</td>
+                <td style="text-align:center"><strong>&lt;</strong></td>
+                <td style="text-align:center">3 &lt; 1</td>
+            </tr>
+            <tr>
+                <td>Menor o igual que</td>
+                <td style="text-align:center"><strong>&lt;=</strong></td>
+                <td style="text-align:center">3 &gt; 1</td>
+            </tr>
+            <tr>
+                <td>Igual que</td>
+                <td style="text-align:center"><strong>==</strong></td>
+                <td style="text-align:center">4 == 4</td>
+            </tr>
+            <tr>
+                <td>Diferente de</td>
+                <td style="text-align:center"><strong>~=</strong></td>
+                <td style="text-align:center">4 ~= 4</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 id="21-leer-push-button-y-encender-led">2.1 Leer push button y encender led</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th style="text-align:center">Materiales</th>
+                <th>Diagrama pictórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2.1.1 Leer una entrada digital, encenderá el LED mientras se mantenga presionado el push button</td>
+                <td style="text-align:center">1 Led<br>1 R1k<br>1 R220<br>1 push button</td>
+                <td><img src="imgs/2.1.1_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td><strong>2.1.2 Mientras se presione el botón los LEDs deben parpadear medio segundo</strong></td>
+                <td style="text-align:center">1 Led<br>1 R1k<br>1 R220<br>1 push button</td>
+                <td><img src="imgs/2.1.1_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td>2.1.3 Control de 2 leds por medio de un push button; mientras se mantiene presionado el push button
+                    deben estar encendidos los leds, de lo contrario estrán apagados</td>
+                <td style="text-align:center">2 Led<br>2 R1k<br>1 push button</td>
+                <td><img src="imgs/2.1.3_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td>2.1.4 Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button
+                    debe matenerse encendido su respectivo LED</td>
+                <td style="text-align:center">2 Led<br>2 R1k<br>1 push button</td>
+                <td><img src="imgs/2.1.4_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td>2.1.5 <strong>Toggle</strong>: Al presionar el push button se debe encender el led y mantenerce en
+                    ese estado; hasta que se vuelva a presionar el led regresará a su estado anterior</td>
+                <td style="text-align:center">2 Led<br>2 R1k<br>1 push button</td>
+                <td><img src="imgs/2.1.1_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td>2.1.6 <strong>Toggle</strong>: Control de 2 leds, cada uno con su propio push button, al presionar
+                    el push button se debe encender su respectivo led y mantenerce en ese estado; hasta que se vuelva a
+                    presionar el led regresará a su estado anterior</td>
+                <td style="text-align:center">2 Led<br>2 R1k<br>1 push button</td>
+                <td><img src="imgs/2.1.4_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 id="22-operadores-l%c3%b3gicos">2.2 Operadores lógicos</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th style="text-align:center">Símbolo</th>
+                <th>Sintaxis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Compuerta AND</td>
+                <td style="text-align:center"><strong>and</strong></td>
+                <td>(3 &gt; 4) and (1 == 1)</td>
+            </tr>
+            <tr>
+                <td>Compuerta OR</td>
+                <td style="text-align:center"><strong>or</strong></td>
+                <td>(4 &lt; 5) or (5 ~= 3)</td>
+            </tr>
+            <tr>
+                <td>Compuerta NOT</td>
+                <td style="text-align:center"><strong>not</strong></td>
+                <td>not (5 &lt; 2)</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th style="text-align:center">Materiales</th>
+                <th>Diagrama pictórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2.2.1 Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button
+                    debe parpadear a 1/4 de segundo, encendido su respectivo LED</td>
+                <td style="text-align:center">2 Led<br>2 R1k<br>1 push button</td>
+                <td><img src="imgs/2.1.4_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td>2.2.2 Control de 2 leds, cada uno con su propio push button, mientras sea presionado el push button
+                    debe parpadear a 1/4 de segundo, encendido su respectivo LED; en caso que sean presionados ambos
+                    push button al mismo tiempo los leds van a parpadear juntos cada 200mS</td>
+                <td style="text-align:center">2 Led<br>2 R1k<br>1 push button</td>
+                <td><img src="imgs/2.1.4_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 id="3-display-de-7-segmentos">3 Display de 7 segmentos</h2>
+    <h4 id="display">Display</h4>
+    <p>Display de 7 segmentos puede ser de ánodo o cátodo común; existen displays con mayores segmentos, hasta una
+        matriz de puntos de diferentes resoluciones.</p>
+    <p><img src="imgs/display.png" alt="display"></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Materiales</th>
+                <th>Diagrama pictórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>3.1.1 Creación de un contador básico con un display de 7 segmentos, el cual comenzará en 0 y
+                    terminará en F, haciendo un conteo hexadecimal, el intervalo de tiempo será de medio segundo</td>
+                <td>1 display de 7-segmentos, una vez que termine se reinicia automáticamente<br>7 R220</td>
+                <td><img src="imgs/3.1.1_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td><strong>3.1.2 Creación de un contador básico con un display de 7 segmentos, el cual comenzará en 0 y
+                        terminará en F, haciendo un conteo hexadecimal, el intercambio de digito será atraves de un push
+                        button</strong></td>
+                <td>1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k</td>
+                <td><img src="imgs/3.1.1_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td><strong>3.1.3 Crear un mensaje que se vaya leyendo en el display de 7 segmentos que diga
+                        &quot;HOLA&quot;, el intervalor de cada letra será de medio segundo</strong></td>
+                <td>1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k</td>
+                <td><img src="imgs/3.1.1_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td><strong>3.1.4 Crear un mensaje que se vaya leyendo en el display de 7 segmentos, <em>tu elijes la
+                            palabra o frase</em>, el intervalor de cada letra será de medio segundo</strong></td>
+                <td>1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k</td>
+                <td><img src="imgs/3.1.1_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+            <tr>
+                <td>3.1.5 Creación de un contador básico con un display de 7 segmentos, el cual comenzará en 0 y
+                    terminará en F, el cambio se hará cada vez que sea presionado un push button</td>
+                <td>1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k</td>
+                <td><img src="imgs/3.1.4_pract.png"
+                        alt="practica 3"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 id="4-control-de-motores">4 Control de motores</h2>
+    <ul>
+        <li>Control de un motor DC (ON-OFF)
+            <ul>
+                <li>Calcular la resistencia para el control del motor DC</li>
+            </ul>
+        </li>
+        <li>Motor PAP</li>
+    </ul>
+    <h2 id="5-ciclos-while">5 Ciclos (while)</h2>
+    <h3 id="leds">LEDs</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Materiales</th>
+                <th>Diagrama pictórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5.1.1 Realizar una secuencia de leds básica, aplicando un ciclo</td>
+                <td>3 LEDs <br>3 Resistencias<br></td>
+                <td><img src="imgs/secuencia.png"
+                        alt="ciclo_leds"></td>
+            </tr>
+            <tr>
+                <td><strong>5.1.2 Simular las luces de alto en un cruce de ferrocarril, como se muestra en la
+                        imagén</strong></td>
+                <td>4 LEDs <br>4 Resistencias<br></td>
+                <td><img src="imgs/ferrocarril.gif"
+                        alt="ferrocarril"></td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li>7 segmentos con valores guardados</li>
+    </ul>
+    <h2 id="6-protocolos-digitales-i2c">6 Protocolos digitales (I2C)</h2>
+    <h3 id="lcd">LCD</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Materiales</th>
+                <th>Diagrama pictórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>6.1.1 Mostrar un mensaje de bienvenida en la LCD</td>
+                <td>- LCD con I2C</td>
+                <td><img src="imgs/lcd_1.png" alt="LCD"></td>
+            </tr>
+            <tr>
+                <td>6.1.1 Mostrar mensajes en LCD, mensaje 1, mensaje 2</td>
+                <td>- LCD con I2C</td>
+                <td><img src="imgs/lcd_1.png" alt="LCD"></td>
+            </tr>
+            <tr>
+                <td>6.1.2 Mandar mensaje con botones, arriba, abajo, izq y derecha</td>
+                <td>- LCD con I2C</td>
+                <td><img src="" alt="LCD"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- 6.1.3 Controlar el giro de un motor DC, con un botón debe girar a la derecha, con otro botón girar a la izquierda y con otro se debe detener | - LCD con I2C<br> - 1 Motor DC|![LCD]() -->
+    <h3 id="dth11">DTH11</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Materiales</th>
+                <th>Diagrama pictórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>6.2.1 Leer los valores de Temperatura y humedad relativa en la terminal</td>
+                <td>1 DTH11<br></td>
+                <td><img src="imgs/dth11_1.png" alt="DTH11"></td>
+            </tr>
+            <tr>
+                <td>6.2.2 Leer los valores de Temperatura y humedad mostrandolo en la LCD</td>
+                <td>1 DTH11<br>1 LCD con I2C</td>
+                <td><img src="imgs/dth11_lcd.png" alt="DTH11">
+                </td>
+            </tr>
+            <tr>
+                <td>6.2.3 Leer los valores de Temperatura y humedad mostrandolo en la LCD, mostrar la temperatura en
+                    grados celsius y grados farenheit</td>
+                <td>1 DTH11<br>1 LCD con I2C</td>
+                <td><img src="imgs/dth11_lcd.png" alt="DTH11">
+                </td>
+            </tr>
+            <tr>
+                <td>6.2.4 Leer la temperatura,con forme vaya incrementando la temperatura vayán encendiendo los leds, y
+                    apagando en secuencia en función de la temperatura</td>
+                <td>1 LCD con I2C <br>3 LEDs<br>3 Resistencias</td>
+                <td><img src="imgs/dth11_lcd_leds.png"
+                        alt="DTH11"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 id="7-entras-y-salidas-anal%c3%b3gicas">7 Entras y salidas analógicas</h2>
+    <h3 id="entradas-%c3%a1nalogicas-adc">Entradas ánalogicas (ADC)</h3>
+    <ul>
+        <li>Leer un poténciometro y mostrarlo en terminal</li>
+        <li>Leer un poténciometro y mostrarlo LCD</li>
+        <li>Leer LDR</li>
+    </ul>
+    <h2 id="salidas-%c3%a1nalogicas-pwm">Salidas ánalogicas (PWM)</h2>
+    <ul>
+        <li>Control de Led RGB</li>
+        <li>Control de un motor DC
+            <ul>
+                <li>Regulador de velocidad motor DC</li>
+                <li>Giro de un motor DC</li>
+            </ul>
+        </li>
+        <li>Servo</li>
+    </ul>
+    <h2 id="8-sensores-digitales">8 Sensores digitales</h2>
+    <h3 id="sensor-pir">Sensor PIR</h3>
+    <h3 id="sensor-de-flama">Sensor de flama</h3>
+    <h3 id="sensor-de-gas-lp">Sensor de gas LP</h3>
+    <h3 id="sensor-de-sonido">Sensor de sonido</h3>
+    <h2 id="9-sensores-anal%c3%b3gicos">9 Sensores analógicos</h2>
+    <h3 id="sensor-de-flama-1">Sensor de flama</h3>
+    <h3 id="sensor-de-gas-lp-1">Sensor de gas LP</h3>
+    <h3 id="sensor-de-sonido-1">Sensor de sonido</h3>
+    <h2 id="9-varios">9 Varios</h2>
+    <h3 id="control-de-cargas-de-alta-potencia-relay">Control de cargas de alta potencia (Relay)</h3>
+    <h3 id="caja-fuerte">Caja fuerte</h3>
+    <h3 id="comunicaci%c3%b3n-rf">Comunicación RF</h3>
+    <!-- TODO: Ejercicios con arrays
+x.x.x... En memeria se contendrán diferentes mensajes, y cada vez que se presione el push button, debe cambiar el mensaje, los mensaje son: <br>-**"cbtis-85"**<br>- **"coatza"<br>- *Tu creas tu propio mensaje*|1 display de 7-segmentos<br>7 R220<br>1 push button<br>1 R1k|![practica 3](imgs/3.1.4_pract.png) -->
+    <h1 id="revisar-el-manual-y-ver-que-otras-practicas-se-pueden-hacer-antes-de-entrar-a-sensores">Revisar el manual y
+        ver que otras practicas se pueden hacer antes de entrar a sensores</h1>
+
+</body>
+
+</html>
