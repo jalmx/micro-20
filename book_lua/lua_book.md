@@ -4,10 +4,13 @@
 
 ### Windows
 
-Hay varias formas de instalación del interprete de Lua, pero la forma más sencilla es descargar los archivos compilados o binario del sitio oficial para la versión de Windows ([Descargar](http://luabinaries.sourceforge.net/download.html)).
+Hay varias formas de instalación del interprete de Lua, pero la forma más sencilla es descargar los archivos compilados o binario del sitio oficial para la versión de Windows ([Descargar](http://luabinaries.sourceforge.net/download.html) (*Descargar para la versión de sistema operativo y que indique que es la versión ejecutable*).
 
 Una vez descargado el binario, se decomprime y se debe configurar la variable de entorno para poder usar el interprete desde terminal. 
 
+#### Configurando variable de entorno en windows
+
+Esto se realizá para que el sistema operativo reconozca el interprete de Lua y se pueda usar desde terminal
 ##  ------
 
 #### Terminal
