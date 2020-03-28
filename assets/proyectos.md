@@ -2,12 +2,13 @@
 
 Áreas|Especificaciones
 -|-|
-Ecología| Las especificaciones se deben ver con el maestro de Ecología Victo Marique, el aprobará lo que necesita
-Equipamiento Mecatrónica| Equipamiento de la automatización de alguna área correspondiente a Mecatrónica (MK1, MK2, MK3 o CC3)
-Libre| Eres libre de crear un proyecto propio, me comentan y se valida, con las especificaciones mínimas a desarrollar
-Instrumento de laboratorio| El área de laboratorio solicita algunos proyectos para automatizació, actualización o creación para uso
+**Ecología**| Las especificaciones se deben ver con el maestro de Ecología Victo Marique, el aprobará lo que necesita
+**Equipamiento Mecatrónica**| Equipamiento de la automatización de alguna área correspondiente a Mecatrónica (MK1, MK2, MK3 o CC3)
+**Libre**| Eres libre de crear un proyecto propio, me comentan y se valida, con las especificaciones mínimas a desarrollar
+**Instrumento de laboratorio**| El área de laboratorio solicita algunos proyectos para automatizació, actualización o creación para uso
+**Kit didáctico**| El kit didáctico lo deben ver con sus maestros de física, química, matemáticas, etc
 
-## Instumento de laboratorio
+## Instrumento de laboratorio
 
 Instrumento|Especificaciones
 -|-|
@@ -28,3 +29,5 @@ Los proyectos para el área de mecatrónica se deben aprobar
 ## Libre
 
 ## Ecología
+
+## Kit didáctico
