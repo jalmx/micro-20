@@ -1,39 +1,400 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Lua</title>
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-        
-        <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": {"availableFonts":["TeX"],"scale": 150}});</script>
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
 </style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        
-        
-    </head>
-    <body class="vscode-light">
-        <h1 id="lua">Lua</h1>
-<h2 id="instalaci%c3%b3n-y-configuraci%c3%b3n-del-entorno">Instalación y configuración del entorno</h2>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="lua">Lua</h1>
+<h2 id="instalaci%C3%B3n-y-configuraci%C3%B3n-del-entorno">Instalación y configuración del entorno</h2>
 <h3 id="windows">Windows</h3>
-<p>Hay varias formas de instalación del interprete de Lua, pero la forma más sencilla es descargar los archivos compilados o binario del sitio oficial para la versión de Windows (<a href="http://luabinaries.sourceforge.net/download.html">Descargar</a> (<em>Descargar para la versión de sistema operativo y que indique que es la versión ejecutable</em>).</p>
-<p>Una vez descargado el binario, se decomprime y se debe configurar la variable de entorno para poder usar el interprete desde terminal.</p>
+<p>Hay varias formas de instalación del intérprete de Lua, pero la forma más sencilla es descargar los archivos compilados o binario del sitio oficial para la versión de Windows (<a href="http://luabinaries.sourceforge.net/download.html">Descargar</a> (<em>Descargar para la versión de sistema operativo y que indique que es la versión ejecutable</em>).</p>
+<p>Una vez descargado el binario, se descomprime y se debe configurar la variable de entorno para poder usar el intérprete desde terminal.</p>
+<blockquote>
+<p><em>Para más detalle ver el siguiente <a href="https://www.youtube.com/watch?v=LtNoFZV_Rj4">video</a></em></p>
+</blockquote>
 <h4 id="configurando-variable-de-entorno-en-windows">Configurando variable de entorno en windows</h4>
-<p>Esto se realizá para que el sistema operativo reconozca el interprete de Lua y se pueda usar desde terminal</p>
-<h2 id="">------</h2>
+<p>Esto se realiza para que el sistema operativo reconozca el intérprete de Lua y se pueda usar desde terminal.</p>
+<blockquote>
+<p>Ver más detalles en el siguiente <a href="https://www.youtube.com/watch?v=LtNoFZV_Rj4">video</a></p>
+</blockquote>
 <h4 id="terminal">Terminal</h4>
-<p>Para mayor comodida y mejor funcionamiento necesitamos una terminal competente. No es estrictamente necesario pero mejorará nuestra experiencia usando la terminal. Para esto usaremos git bash, se descarga de su sitio oficial (<a href="https://git-scm.com/">Descagar</a>).</p>
+<p>Para mayor comodidad y mejor funcionamiento necesitamos una terminal competente. No es estrictamente necesario pero mejorará nuestra experiencia usando la terminal. Para esto usaremos <a href="https://git-scm.com/">git bash</a>, se descarga de su sitio oficial (<a href="https://git-scm.com/">Descargar</a>).</p>
 <h3 id="macos">MacOS</h3>
 <p>En caso de Mac se utiliza el gestor de paquetes <code>brew</code>. Abrimos la terminal que y se escribe la siguiente instrucción:</p>
-<pre><code class="language-bash"><div>brew install lua
+<pre class="hljs"><code><div>brew install lua
 </div></code></pre>
 <h3 id="editor">Editor</h3>
 <p>Se utilizará el editor de código llamado <em>Visual Studio Code</em>, se descarga de su sitio oficial <a href="https://code.visualstudio.com/">code.visualstudio.com</a>. Se elige el instalador dependiendo del sistema operativo que se tenga.</p>
@@ -47,38 +408,38 @@
 <li>Creamos un archivo con la extensión <code>.lua</code>. Ejemplo: <code>programa1.lua</code></li>
 <li>Estamos listos para hacer la primera prueba.</li>
 </ol>
-<h3 id="creando-nuestro-primer-%22hola-mundo%22">Creando nuestro primer &quot;Hola Mundo&quot;</h3>
+<h3 id="creando-nuestro-primer-hola-mundo">Creando nuestro primer &quot;Hola Mundo&quot;</h3>
 <p>Una vez que tenemos nuestro archivo escribimos en él lo siguiente:</p>
-<pre><code class="language-lua"><div><span class="hljs-built_in">print</span>(<span class="hljs-string">"Estoy programando en Lua"</span>)
+<pre class="hljs"><code><div><span class="hljs-built_in">print</span>(<span class="hljs-string">"Estoy programando en Lua"</span>)
 </div></code></pre>
-<p>Ahora debemos abrir la terminal integrada que tiene el editor, con la combinación de letras, Windows y Linux <code>Ctrl+J</code>, Mac <code>CMD+J</code>. En caso que haya salido en la pestaña <code>Terminal</code>, dar click en ella. Una vez que ya cargo el <code>promt</code> escribimos:</p>
-<pre><code class="language-bash"><div>lua nombre_archivo.lua
+<p>Ahora debemos abrir la terminal integrada que tiene el editor, con la combinación de letras, Windows y Linux <code>Ctrl+J</code>, Mac <code>CMD+J</code>. En caso que haya salido en la pestaña <code>Terminal</code>, dar clic en ella. Una vez que ya cargo el <code>promt</code> escribimos:</p>
+<pre class="hljs"><code><div>lua nombre_archivo.lua
 </div></code></pre>
 <p>En nuestro caso, el archivo se llama <code>programa1.lua</code>; por lo tanto, queda de la siguiente forma:</p>
-<pre><code class="language-bash"><div>lua programa1.lua
+<pre class="hljs"><code><div>lua programa1.lua
 </div></code></pre>
 <p>Damos enter. Debiendose ejecutar el programa y veremos en el <code>promt</code>. El siguiente mensaje:</p>
-<pre><code class="language-bash"><div>Estoy programando en Lua
+<pre class="hljs"><code><div>Estoy programando en Lua
 </div></code></pre>
 <p>Este procedimiento lo realizaremos cada vez que hagamos nuestros programas.</p>
-<h2 id="conceptos-b%c3%a1sicos">Conceptos básicos</h2>
-<h3 id="%c2%bfqu%c3%a9-es-una-variable">¿Qué es una variable?</h3>
-<p>Es un espacio virtual el cual quedará registrado en la memoria, el cual se podrá llamar en diferentes puntos de la programacion cuantas veces la necesitemos. A este espacio se le da un nombre que nos indique para qué a sido creada.</p>
+<h2 id="conceptos-b%C3%A1sicos">Conceptos básicos</h2>
+<h3 id="%C2%BFqu%C3%A9-es-una-variable">¿Qué es una variable?</h3>
+<p>Es un espacio virtual el cual quedará registrado en la memoria; el cual se podrá llamar en diferentes puntos de la programación cuantas veces la necesitemos. A este espacio se le da un nombre que nos indique para qué ha sido creada. Las variables pueden tomar cualquier tipo de valor. Dado que Lua es un lenguaje débilmente tipado, el tipo de la variable se infiere, además se puede cambiar su contenido en cualquier instante, sin importar que tipo era.</p>
 <p><em>Ejemplos:</em></p>
 <p>Variable que almacena la edad:</p>
-<pre><code class="language-lua"><div>edad = <span class="hljs-number">20</span>
+<pre class="hljs"><code><div>edad = <span class="hljs-number">20</span>
 </div></code></pre>
 <p>Variable que almacena el registro:</p>
-<pre><code class="language-lua"><div>registro = <span class="hljs-number">2</span>
+<pre class="hljs"><code><div>registro = <span class="hljs-number">2</span>
 </div></code></pre>
 <p>Variable que almacena un nombre:</p>
-<pre><code class="language-lua"><div>nombre = <span class="hljs-string">"Diana"</span>
+<pre class="hljs"><code><div>nombre = <span class="hljs-string">"Diana"</span>
 </div></code></pre>
 <p>Variable que almacena una frase:</p>
-<pre><code class="language-lua"><div>nombre = <span class="hljs-string">"Aprendiendo programación"</span>
+<pre class="hljs"><code><div>nombre = <span class="hljs-string">"Aprendiendo programación"</span>
 </div></code></pre>
 <p>Variable que almacena una función:</p>
-<pre><code class="language-lua"><div>mensaje = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(nombre)</span></span>
+<pre class="hljs"><code><div>mensaje = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(nombre)</span></span>
             <span class="hljs-keyword">return</span> <span class="hljs-string">"Hola "</span> .. nombre 
           <span class="hljs-keyword">end</span>
 </div></code></pre>
@@ -89,13 +450,13 @@ Existen dos tipos de comentarios, una línea (<em>single line</em>) y multi lín
 <li>Single line: Para escribir un comentario comienza con doble guion medio.
 Ejemplo:</li>
 </ul>
-<pre><code class="language-lua"><div><span class="hljs-comment">-- comentario de una línea</span>
+<pre class="hljs"><code><div><span class="hljs-comment">-- comentario de una línea</span>
 </div></code></pre>
 <ul>
-<li>Multi line: Para escribir un comentario comienza con doble guion medio y doble corchete cuadrado, para cerrar el comentario se hace con doble guíon y corchetes cuadrados.
+<li>Multi line: Para escribir un comentario comienza con doble guion medio y doble corchete cuadrado, para cerrar el comentario se hace con doble guion y corchetes cuadrados.
 Ejemplo:</li>
 </ul>
-<pre><code class="language-lua"><div><span class="hljs-comment">--[[ 
+<pre class="hljs"><code><div><span class="hljs-comment">--[[ 
     comentario 
     de 
     multi línea
@@ -103,33 +464,201 @@ Ejemplo:</li>
 </div></code></pre>
 <h2 id="comenzando">Comenzando</h2>
 <p>Vamos a realizar nuestro primer programa el cual es la suma de dos números, vamos a declarar dos variables, a cada uno asignaremos un valor arbitrario e imprimir el resultado:</p>
-<pre><code class="language-lua"><div><span class="hljs-comment">-- comenzamos declarando dos variables asignandole un valor arbitrario, estos pueden ser los que uno quiera</span>
+<pre class="hljs"><code><div><span class="hljs-comment">-- comenzamos declarando dos variables asignándole un valor arbitrario, estos pueden ser los que uno quiera</span>
 
 <span class="hljs-keyword">local</span> valor1 = <span class="hljs-number">4</span> <span class="hljs-comment">-- asignamos el valor de 4 a una variable llamada valor1</span>
 <span class="hljs-keyword">local</span> valor2 = <span class="hljs-number">3</span> <span class="hljs-comment">-- asignamos el valor de 3 a una variable llamada valor2</span>
 
-<span class="hljs-keyword">local</span> resultado = valor1 + valor2 <span class="hljs-comment">-- realizamos la suma de las variables y lo guardamos en otra varialbe llamada resultado</span>
+<span class="hljs-keyword">local</span> resultado = valor1 + valor2 <span class="hljs-comment">-- realizamos la suma de las variables y lo guardamos en otra variable llamada resultado</span>
 
-<span class="hljs-built_in">print</span>(resultado) <span class="hljs-comment">-- se imprimme el resultado de la suma</span>
+<span class="hljs-built_in">print</span>(resultado) <span class="hljs-comment">-- se imprime el resultado de la suma</span>
 </div></code></pre>
-<p>La palabra <code>local</code> la analizaremos más adelante con el tema de alcance de variables, por el momento ve acostumbrandote a usarla.</p>
-<h2 id="convencinones-en-declaraci%c3%b3n-de-variables-y-funciones">Convencinones en declaración de variables y funciones</h2>
-<p>Dentro la programación existen diversas convenciones el nombramiento de variables y funciones. En este libro usaremos la convención <code>Camel Case</code>; nombrada de esta forma por la aparencia o forma que toma al momento de nombrarlas.</p>
-<p>La forma de nombrarlas es que el nombre de la variable o función comienza <strong>siempre</strong> en minúscula y se el nombre es largo la siguiente palabra sin dejar espacio se escribre con mayúscula</p>
-<p>Primero que nada una variable o función jamás podrá comenzar con un número, ni símbolos, <strong>siempre</strong> debe ser por letras.</p>
+<p>La palabra <code>local</code> la analizaremos más adelante con el tema de alcance de variables, por el momento ve acostumbrándote a usarla.</p>
+<h2 id="convenciones-en-declaraci%C3%B3n-de-variables-y-funciones">Convenciones en declaración de variables y funciones</h2>
+<p>Dentro la programación existen diversas convenciones el nombramiento de variables y funciones. En este libro usaremos la convención <code>Camel Case</code>; nombrada de esta forma por la apariencia o forma que toma al momento de nombrarlas.</p>
+<p>La forma de nombrarlas es que el nombre de la variable o función comienza <strong>siempre</strong> en minúscula y se el nombre es largo la siguiente palabra sin dejar espacio se escribe con mayúscula</p>
+<p>Primero que nada, una variable o función jamás podrá comenzar con un número, ni símbolos, <strong>siempre</strong> debe ser por letras.</p>
 <p><em>Ejemplos:</em></p>
-<pre><code class="language-lua"><div>nombre = <span class="hljs-string">"Frida"</span>
+<pre class="hljs"><code><div>nombre = <span class="hljs-string">"Frida"</span>
 </div></code></pre>
-<pre><code class="language-lua"><div>carroGrande = <span class="hljs-string">"Camión"</span>
+<pre class="hljs"><code><div>carroGrande = <span class="hljs-string">"Camión"</span>
 </div></code></pre>
-<pre><code class="language-lua"><div>numeroDeCasas = <span class="hljs-number">23</span>
+<pre class="hljs"><code><div>numeroDeCasas = <span class="hljs-number">23</span>
 </div></code></pre>
-<pre><code class="language-lua"><div>variable1 = <span class="hljs-number">14</span>
+<pre class="hljs"><code><div>variable1 = <span class="hljs-number">14</span>
 </div></code></pre>
-<pre><code class="language-lua"><div>mesajeInicio = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(nombre)</span></span>
+<pre class="hljs"><code><div>mesajeInicio = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(nombre)</span></span>
                   <span class="hljs-built_in">print</span>(<span class="hljs-string">"Bienvenido"</span> .. nombre)
                <span class="hljs-keyword">end</span>
 </div></code></pre>
+<h3 id="operadores-aritm%C3%A9ticos">Operadores aritméticos</h3>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th style="text-align:center">Símbolo</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Suma</td>
+<td style="text-align:center">+</td>
+<td>Operador de suma</td>
+<td>4 + 3 → 7</td>
+</tr>
+<tr>
+<td>Resta</td>
+<td style="text-align:center">-</td>
+<td>Operador de resta</td>
+<td>9 - 5 → 4</td>
+</tr>
+<tr>
+<td>Multiplicación</td>
+<td style="text-align:center">*</td>
+<td>Operador de multiplicación</td>
+<td>3 * 3 → 6</td>
+</tr>
+<tr>
+<td>División</td>
+<td style="text-align:center">/</td>
+<td>Operador de razón</td>
+<td>1 / 2 → 0.5</td>
+</tr>
+<tr>
+<td>Módulo</td>
+<td style="text-align:center">%</td>
+<td>Operador de residuo</td>
+<td>5 % 3 → 2</td>
+</tr>
+<tr>
+<td>Potencia</td>
+<td style="text-align:center">^</td>
+<td>Operador de potencia</td>
+<td>3 ^ 2 → 9</td>
+</tr>
+</tbody>
+</table>
+<p>Ahora realizaremos un ejemplo aplicando todos los operadores aritméticos:</p>
+<p><code>Declarar 2 variables, asignado un valor arbitrario y aplicar todos los operadores aritméticos y observar el resultado.</code></p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Declaro mis variables iniciales</span>
+<span class="hljs-keyword">local</span> valor1 = <span class="hljs-number">5</span> <span class="hljs-comment">-- asigno el valor de 5 </span>
+<span class="hljs-keyword">local</span> valor2 = <span class="hljs-number">2</span> <span class="hljs-comment">-- asigno el valor de 2</span>
 
-    </body>
-    </html>
+<span class="hljs-keyword">local</span> suma = valor1 + valor2  <span class="hljs-comment">-- realizamos la operación de suma y lo guardamos en una variable</span>
+<span class="hljs-keyword">local</span> resta = valor1 - valor2  <span class="hljs-comment">-- realizamos la operación de resta y lo guardamos en una variable</span>
+<span class="hljs-keyword">local</span> multi = valor1 * valor2  <span class="hljs-comment">-- realizamos la operación de multiplicación y lo guardamos en una variable</span>
+<span class="hljs-keyword">local</span> div = valor1 / valor2  <span class="hljs-comment">-- realizamos la operación de división y lo guardamos en una variable</span>
+<span class="hljs-keyword">local</span> <span class="hljs-built_in">mod</span> = valor1 % valor2  <span class="hljs-comment">-- realizamos la operación de residuo y lo guardamos en una variable</span>
+<span class="hljs-keyword">local</span> potencia = valor1 ^ valor2  <span class="hljs-comment">-- realizamos la operación de potencia y lo guardamos en una variable</span>
+
+<span class="hljs-comment">-- Se imprimen los resultados</span>
+<span class="hljs-built_in">print</span>(suma) <span class="hljs-comment">-- 7</span>
+<span class="hljs-built_in">print</span>(resta) <span class="hljs-comment">-- 3</span>
+<span class="hljs-built_in">print</span>(multi) <span class="hljs-comment">-- 10</span>
+<span class="hljs-built_in">print</span>(div) <span class="hljs-comment">-- 2.5</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">mod</span>) <span class="hljs-comment">-- 1</span>
+<span class="hljs-built_in">print</span>(potencia) <span class="hljs-comment">-- 25.0</span>
+
+</div></code></pre>
+<h2 id="estructura-de-decisi%C3%B3n">Estructura de decisión</h2>
+<p>La estructura más basica que existe es la de una decisión, lo cual significa que si a lo que se pregunta es verdadero o no; con base en ello se realiza o no cierta acción.</p>
+<h3 id="estructura-if">Estructura IF</h3>
+<p>Se muestra la estructura <strong>if</strong> a continuación</p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Forma de leer el bloque if</span>
+
+<span class="hljs-comment">-- si la condición se cumple entonces</span>
+<span class="hljs-keyword">if</span> &lt; condición &gt; <span class="hljs-keyword">then</span> <span class="hljs-comment">-- inicia el bloque if</span>
+
+  <span class="hljs-comment">-- bloque de código si la condición se cumplió</span>
+
+<span class="hljs-keyword">end</span> <span class="hljs-comment">-- indica que el bloque ha terminado</span>
+</div></code></pre>
+<p><em>Ejemplo:</em></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> var1 = <span class="hljs-number">4</span>
+<span class="hljs-keyword">local</span> var2 = <span class="hljs-number">5</span>
+
+<span class="hljs-keyword">if</span> var1 &lt; var2 <span class="hljs-keyword">then</span> <span class="hljs-comment">-- si var1 es menor que var2 entra al bloque y ejecuta las instrucciones</span>
+  
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"4 es mayor que 5"</span>) <span class="hljs-comment">-- 4 es mayor que 5</span>
+
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<h3 id="operadores-de-relaci%C3%B3n">Operadores de relación</h3>
+<p>En una comparacíon se realiza una pregunta (pregunta figurativa) en la cual la respuesta solo puede ser <em>si</em> o <em>no</em>; es decir, <em>True</em> o <em>False</em>. Para esto los unicos operadores que dan este resultado son los siguientes:</p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th style="text-align:center">Símbolo</th>
+<th style="text-align:center">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menor que</td>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">3 &lt; 5</td>
+</tr>
+<tr>
+<td>Menor o igual que</td>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:center">6 &lt;= 5</td>
+</tr>
+<tr>
+<td>Mayor que</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">7 &gt; 2</td>
+</tr>
+<tr>
+<td>Mayor o giual que</td>
+<td style="text-align:center">&gt;=</td>
+<td style="text-align:center">2 &gt; 5</td>
+</tr>
+<tr>
+<td>Igual que</td>
+<td style="text-align:center">==</td>
+<td style="text-align:center">8 == 8</td>
+</tr>
+<tr>
+<td>Diferente que</td>
+<td style="text-align:center">~=</td>
+<td style="text-align:center">9 ~= 2</td>
+</tr>
+</tbody>
+</table>
+<p><em>Ejemplo:</em></p>
+<ul>
+<li>Aplicar todos los operadores de relación comparando dos variables con un valor asignado</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> a = <span class="hljs-number">7</span>
+<span class="hljs-keyword">local</span> b = <span class="hljs-number">8</span>
+
+<span class="hljs-keyword">if</span> a &lt; b <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"7 es menor que 8"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">if</span> a &lt;= b <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"7 es menor o igual que 8"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">if</span> a &gt; b <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"7 es menor que 8"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">if</span> a &gt;= b <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"7 es menor o igual que 8"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">if</span> a == b <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"7 es igual que 8"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">if</span> a ~= b <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"7 es diferente que 8"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+
+</body>
+</html>
