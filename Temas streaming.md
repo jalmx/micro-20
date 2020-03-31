@@ -2,8 +2,8 @@
 
 # Temas Micro
 
+- Herramienta nodemcu-tool, comandos
 - Leer la placa, señales, voltajes
-- Comandos para manejar la placa
 - Activar el led
 - Explicar secuencias, control de 
 - Sensores y transductores

@@ -8,3 +8,7 @@
 - [Documentación oficial de NodeMCU ESP8266](https://nodemcu.readthedocs.io/en/master/)
 - [Nodejs v10.18.1](node-v10.18.1-x64.msi)
 - [Driver CH340 para windows](CH341SER.EXE)
+- [nodemcu-tool](https://github.com/AndiDittrich/NodeMCU-Tool)
+- [Comandos de nodemcu-tool](https://github.com/AndiDittrich/NodeMCU-Tool/blob/master/docs/CommandReference.md)
+- [Descargar JRE zulu x64]()
+- [Descargar ESPlores](https://esp8266.ru/esplorer/)

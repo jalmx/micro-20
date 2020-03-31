@@ -388,7 +388,7 @@ blockquote {
 <h4 id="configurando-variable-de-entorno-en-windows">Configurando variable de entorno en windows</h4>
 <p>Esto se realiza para que el sistema operativo reconozca el intérprete de Lua y se pueda usar desde terminal.</p>
 <blockquote>
-<p>Ver más detalles en el siguiente <a href="https://www.youtube.com/watch?v=LtNoFZV_Rj4">video</a></p>
+<p><em>Ver más detalles en el siguiente <a href="https://www.youtube.com/watch?v=LtNoFZV_Rj4">video</a></em></p>
 </blockquote>
 <h4 id="terminal">Terminal</h4>
 <p>Para mayor comodidad y mejor funcionamiento necesitamos una terminal competente. No es estrictamente necesario pero mejorará nuestra experiencia usando la terminal. Para esto usaremos <a href="https://git-scm.com/">git bash</a>, se descarga de su sitio oficial (<a href="https://git-scm.com/">Descargar</a>).</p>
@@ -659,6 +659,340 @@ Ejemplo:</li>
   <span class="hljs-built_in">print</span>(<span class="hljs-string">"7 es diferente que 8"</span>)
 <span class="hljs-keyword">end</span>
 </div></code></pre>
+<h3 id="ejemplos">Ejemplos</h3>
+<ol>
+<li>Crear un programa que identifique si la persona es mayor de edad. Con la edad dada dentro del programa.</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> edad = <span class="hljs-number">20</span>
+
+<span class="hljs-keyword">if</span> edad &gt;= <span class="hljs-number">18</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Eres mayor de edad"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<ol start="2">
+<li>Crear un programa que identifique si el número es par o impar</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> n = <span class="hljs-number">5</span>
+
+<span class="hljs-keyword">if</span> n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"El número es par"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">if</span> n % <span class="hljs-number">2</span> ~= <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"El número es impar"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<ol start="3">
+<li>Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprovado, de lo contrario indique un mensaje de motiviación</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> cal1 = <span class="hljs-number">8</span>
+<span class="hljs-keyword">local</span> cal2 = <span class="hljs-number">5</span>
+<span class="hljs-keyword">local</span> cal3 = <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">local</span> promedio = (cal1 + cal2 + cal3) / <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">if</span> promedio &gt;= <span class="hljs-number">6</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Aprobado con éxito"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">if</span> promedio &lt; <span class="hljs-number">6</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Te falto muy poco para lograrlo, sigue esforzandote"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<ol start="4">
+<li>Crear un programa que indique de los números cual es el mayor o si son iguales</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> variable1 = <span class="hljs-number">4</span>
+<span class="hljs-keyword">local</span> variable2 = <span class="hljs-number">7</span>
+
+<span class="hljs-keyword">if</span> variable1 &gt; variable2 <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"El primer valor es mayor que el segundo"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">if</span> variable1 &lt; variable2 <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"El segundo valor es mayor que el primero"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">if</span> variable1 == variable2 <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Ambos valores son iguales"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<p>Los ejemplos anteriores se pueden realizar de una manera más optima, para esto veremos el siguiente tema.</p>
+<h3 id="estructura-if-else">Estructura if else</h3>
+<p>Esta forma de la estructura es conocida como <em>si se cumple la comparación realizo la acción, de lo contrario realizo otra acción</em></p>
+<p>Sintexis:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> &lt; comparación &gt; <span class="hljs-keyword">then</span>
+  <span class="hljs-comment">-- bloque de código que se ejecuta si la comparación es verdadera</span>
+<span class="hljs-keyword">else</span> 
+  <span class="hljs-comment">-- bloque de código que se ejecuta si la comparación no se cumple</span>
+<span class="hljs-keyword">end</span> <span class="hljs-comment">-- termina el bloque if-else</span>
+</div></code></pre>
+<p>Una nota importante es que en caso que nunca se cumpla la condición <strong>siempre entrará al bloque <em>else</em></strong></p>
+<p><em>Ejemplos:</em></p>
+<ol>
+<li>Crear un programa que identifique si la persona es mayor de edad. Con la edad dada dentro del programa.</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> edad = <span class="hljs-number">20</span>
+
+<span class="hljs-keyword">if</span> edad &gt;= <span class="hljs-number">18</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Eres mayor de edad"</span>)
+<span class="hljs-keyword">else</span> 
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Es menor de edad"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<ol start="2">
+<li>Crear un programa que identifique si el número es par o impar</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> n = <span class="hljs-number">5</span>
+
+<span class="hljs-keyword">if</span> n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"El número es par"</span>)
+<span class="hljs-keyword">else</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"El número es impar"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<ol start="3">
+<li>Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprovado, de lo contrario indique un mensaje de motiviación</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> cal1 = <span class="hljs-number">8</span>
+<span class="hljs-keyword">local</span> cal2 = <span class="hljs-number">5</span>
+<span class="hljs-keyword">local</span> cal3 = <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">local</span> promedio = (cal1 + cal2 + cal3) / <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">if</span> promedio &gt;= <span class="hljs-number">6</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Aprobado con éxito"</span>)
+<span class="hljs-keyword">else</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Te falto muy poco para lograrlo, sigue esforzandote"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<h3 id="if-anidado">If anidado</h3>
+<p>Se pueden combinar el if-else, con más sentencias if o if-else, es llamado <em>if anidado</em></p>
+<ol>
+<li>Crear un programa que indique de los números cual es el mayor o si son iguales</li>
+</ol>
+<p>Primera forma</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> variable1 = <span class="hljs-number">4</span>
+<span class="hljs-keyword">local</span> variable2 = <span class="hljs-number">7</span>
+
+<span class="hljs-keyword">if</span> variable1 &gt; variable2 <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"El primer valor es mayor que el segundo"</span>)
+<span class="hljs-keyword">else</span> <span class="hljs-comment">-- Comienza el bloque else, todo lo que esta dentro de él se ejecuta si la condición previa no se cumple</span>
+  <span class="hljs-keyword">if</span> variable1 &lt; variable2 <span class="hljs-keyword">then</span> <span class="hljs-comment">-- if dentro de un else</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"El segundo valor es mayor que el primero"</span>)
+  <span class="hljs-keyword">else</span> 
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Ambos valores son iguales"</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<p>Segunda forma:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> variable1 = <span class="hljs-number">4</span>
+<span class="hljs-keyword">local</span> variable2 = <span class="hljs-number">7</span>
+
+<span class="hljs-keyword">if</span> variable1 &gt;= variable2 <span class="hljs-keyword">then</span> <span class="hljs-comment">-- inicia el bloque if</span>
+  <span class="hljs-keyword">if</span> variable1 &gt; variable2 <span class="hljs-keyword">then</span> <span class="hljs-comment">-- primer if anidado</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"El primer valor es mayor que el segundo"</span>)
+  <span class="hljs-keyword">else</span> 
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Ambos valores son iguales"</span>)
+  <span class="hljs-keyword">end</span> <span class="hljs-comment">-- fin del bloque interno</span>
+<span class="hljs-keyword">else</span> <span class="hljs-comment">-- bloque else principal</span>
+  <span class="hljs-keyword">if</span> variable1 &lt; variable2 <span class="hljs-keyword">then</span> <span class="hljs-comment">-- if dentro de un else</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"El segundo valor es mayor que el primero"</span>)
+  <span class="hljs-keyword">end</span> <span class="hljs-comment">--termina if interno del bloque else</span>
+<span class="hljs-keyword">end</span> <span class="hljs-comment">-- termina bloque else principal</span>
+</div></code></pre>
+<ol start="2">
+<li>Comparar 3 números e indicar cuál es el mayor</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> valor1 = <span class="hljs-number">1</span>
+<span class="hljs-keyword">local</span> valor2 = <span class="hljs-number">7</span>
+<span class="hljs-keyword">local</span> valor3 = <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">if</span> valor1 &gt; valor2 <span class="hljs-keyword">then</span>
+  <span class="hljs-keyword">if</span> valor1 &gt; valor3 <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"El primer valor es el mayor"</span>)  
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"El valor 3 es el mayor"</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">else</span> 
+  <span class="hljs-keyword">if</span> valor2 &gt; valor3 <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"El valor 2 es el mayor"</span>)
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"El valor 3 es el mayor"</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<h3 id="forma-ifelse">Forma ifelse</h3>
+<p>Existe otra forma y es la más usual de usar en un if-else.</p>
+<p>Sintaxis:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> &lt; comparación &gt; <span class="hljs-keyword">then</span>
+  <span class="hljs-comment">-- bloque de código</span>
+<span class="hljs-keyword">elseif</span> &lt; comparación &gt; <span class="hljs-keyword">then</span>
+  <span class="hljs-comment">-- bloque de código</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<p>Puede contener un else al final, depende de tu aplicación usarlo o no.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> &lt; comparación &gt; <span class="hljs-keyword">then</span>
+  <span class="hljs-comment">-- bloque de código</span>
+<span class="hljs-keyword">elseif</span> &lt; comparación &gt; <span class="hljs-keyword">then</span>
+  <span class="hljs-comment">-- bloque de código</span>
+<span class="hljs-keyword">else</span> 
+  <span class="hljs-comment">-- bloque de código que se ejecuta si alguna comparación anterior no se cumplio</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<p>Ejemplos:</p>
+<ol>
+<li>Crear un programa que indique de los números cual es el mayor o si son iguales</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> variable1 = <span class="hljs-number">4</span>
+<span class="hljs-keyword">local</span> variable2 = <span class="hljs-number">7</span>
+
+<span class="hljs-keyword">if</span> variable1 &gt; variable2 <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"El primer valor es mayor que el segundo"</span>)
+<span class="hljs-keyword">elseif</span> variable1 &lt; variable2 <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"El segundo valor es mayor que el primero"</span>)
+<span class="hljs-keyword">else</span> 
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Ambos valores son iguales"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<p>De todas las formas mostrada esta última es la más corta y eficiente.</p>
+<ol start="2">
+<li></li>
+</ol>
+<pre class="hljs"><code><div></div></code></pre>
+<h3 id="operadores-l%C3%B3gicos">Operadores lógicos</h3>
+<p>Un operador lógico sirve para combinar comparaciones y en función del resultado tomar una decisión, comprende de 3 operadores que son AND, OR y NOT.</p>
+<p>Las tablas de verdad de los operaciones:</p>
+<p><strong>AND</strong></p>
+<table>
+<thead>
+<tr>
+<th>Entrada 1</th>
+<th>Entrada 2</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>false</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<p><em>La regla de <strong>AND</strong> nos dice que mientras exista a la entrada un <em>false</em>, tendremos un valor <em>false</em> a la salida</em></p>
+<p><strong>OR</strong></p>
+<table>
+<thead>
+<tr>
+<th>Entrada 1</th>
+<th>Entrada 2</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr>
+<td>true</td>
+<td>false</td>
+<td>true</td>
+</tr>
+<tr>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<p><em>La regla de <strong>OR</strong> nos dice que mientras exista a la entrada un <em>true</em>, tendremos un valor <em>true</em> a la salida</em></p>
+<p><strong>NOT</strong></p>
+<table>
+<thead>
+<tr>
+<th>Entrada</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>false</td>
+<td>true</td>
+</tr>
+<tr>
+<td>true</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p><em>La regla de <strong>NOT</strong> nos dice que todo lo que recibe lo invierte.</em></p>
+<p>Aplicación de los operadores lógicos</p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th style="text-align:center">Símbolo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND</td>
+<td style="text-align:center">and</td>
+<td>(9 &gt; 4) and (3 &lt; 6) → true</td>
+</tr>
+<tr>
+<td>OR</td>
+<td style="text-align:center">or</td>
+<td>(8 == 3) or (2 ~= 3) → true</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td style="text-align:center">not</td>
+<td>not(true) → false</td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplos:</p>
+<ol>
+<li>En una variable almacena la calificación, se debe verificar el valor si escongruente; es decir, calificaciones arriaba de 10 y abajo de 0 no son posibles, la calificación reprobatoria es por debajo de 6 y aprobatoria arriaba de 6.</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> calificacion = <span class="hljs-number">8</span>
+
+<span class="hljs-keyword">if</span> calificacion &gt; <span class="hljs-number">6</span> <span class="hljs-keyword">and</span> calicacion &lt;= <span class="hljs-number">10</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Has aprobado la asignatura"</span>)
+<span class="hljs-keyword">elseif</span> calificacion &lt; <span class="hljs-number">6</span> <span class="hljs-keyword">and</span> calificacion &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"No has aprobado la asignatura"</span>)
+<span class="hljs-keyword">else</span> 
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"La calificación no es posible"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<ol start="2">
+<li></li>
+</ol>
 
 </body>
 </html>

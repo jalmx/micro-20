@@ -292,3 +292,302 @@ if a ~= b then
   print("7 es diferente que 8")
 end
 ```
+
+### Ejemplos
+
+1. Crear un programa que identifique si la persona es mayor de edad. Con la edad dada dentro del programa.
+
+```lua
+local edad = 20
+
+if edad >= 18 then
+  print("Eres mayor de edad")
+end
+```
+
+2. Crear un programa que identifique si el número es par o impar
+
+```lua
+local n = 5
+
+if n % 2 == 0 then
+  print("El número es par")
+end
+
+if n % 2 ~= 0 then
+  print("El número es impar")
+end
+```
+
+3. Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprovado, de lo contrario indique un mensaje de motiviación
+
+```lua
+local cal1 = 8
+local cal2 = 5
+local cal3 = 3
+
+local promedio = (cal1 + cal2 + cal3) / 3
+
+if promedio >= 6 then
+  print("Aprobado con éxito")
+end
+
+if promedio < 6 then
+  print("Te falto muy poco para lograrlo, sigue esforzandote")
+end
+```
+
+4. Crear un programa que indique de los números cual es el mayor o si son iguales
+
+```lua
+local variable1 = 4
+local variable2 = 7
+
+if variable1 > variable2 then
+  print("El primer valor es mayor que el segundo")
+end
+
+if variable1 < variable2 then
+  print("El segundo valor es mayor que el primero")
+end
+
+if variable1 == variable2 then
+  print("Ambos valores son iguales")
+end
+```
+
+Los ejemplos anteriores se pueden realizar de una manera más optima, para esto veremos el siguiente tema.
+
+### Estructura if else
+
+Esta forma de la estructura es conocida como *si se cumple la comparación realizo la acción, de lo contrario realizo otra acción*
+
+Sintexis:
+
+```lua
+if < comparación > then
+  -- bloque de código que se ejecuta si la comparación es verdadera
+else 
+  -- bloque de código que se ejecuta si la comparación no se cumple
+end -- termina el bloque if-else
+```
+
+Una nota importante es que en caso que nunca se cumpla la condición **siempre entrará al bloque *else***
+
+*Ejemplos:*
+
+1. Crear un programa que identifique si la persona es mayor de edad. Con la edad dada dentro del programa.
+
+```lua
+local edad = 20
+
+if edad >= 18 then
+  print("Eres mayor de edad")
+else 
+  print("Es menor de edad")
+end
+```
+
+2. Crear un programa que identifique si el número es par o impar
+
+```lua
+local n = 5
+
+if n % 2 == 0 then
+  print("El número es par")
+else
+  print("El número es impar")
+end
+```
+
+3. Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprovado, de lo contrario indique un mensaje de motiviación
+
+```lua
+local cal1 = 8
+local cal2 = 5
+local cal3 = 3
+
+local promedio = (cal1 + cal2 + cal3) / 3
+
+if promedio >= 6 then
+  print("Aprobado con éxito")
+else
+  print("Te falto muy poco para lograrlo, sigue esforzandote")
+end
+```
+
+### If anidado
+
+Se pueden combinar el if-else, con más sentencias if o if-else, es llamado *if anidado* 
+
+1. Crear un programa que indique de los números cual es el mayor o si son iguales
+
+Primera forma
+
+```lua
+local variable1 = 4
+local variable2 = 7
+
+if variable1 > variable2 then
+  print("El primer valor es mayor que el segundo")
+else -- Comienza el bloque else, todo lo que esta dentro de él se ejecuta si la condición previa no se cumple
+  if variable1 < variable2 then -- if dentro de un else
+    print("El segundo valor es mayor que el primero")
+  else 
+    print("Ambos valores son iguales")
+  end
+end
+```
+
+Segunda forma:
+
+```lua
+local variable1 = 4
+local variable2 = 7
+
+if variable1 >= variable2 then -- inicia el bloque if
+  if variable1 > variable2 then -- primer if anidado
+    print("El primer valor es mayor que el segundo")
+  else 
+    print("Ambos valores son iguales")
+  end -- fin del bloque interno
+else -- bloque else principal
+  if variable1 < variable2 then -- if dentro de un else
+    print("El segundo valor es mayor que el primero")
+  end --termina if interno del bloque else
+end -- termina bloque else principal
+```
+
+2. Comparar 3 números e indicar cuál es el mayor
+
+```lua
+local valor1 = 1
+local valor2 = 7
+local valor3 = 3
+
+if valor1 > valor2 then
+  if valor1 > valor3 then
+    print("El primer valor es el mayor")  
+  else
+    print("El valor 3 es el mayor")
+  end
+else 
+  if valor2 > valor3 then
+    print("El valor 2 es el mayor")
+  else
+    print("El valor 3 es el mayor")
+  end
+end
+```
+
+### Forma ifelse
+Existe otra forma y es la más usual de usar en un if-else.
+
+Sintaxis:
+
+```lua
+if < comparación > then
+  -- bloque de código
+elseif < comparación > then
+  -- bloque de código
+end
+```
+
+Puede contener un else al final, depende de tu aplicación usarlo o no.
+
+```lua
+if < comparación > then
+  -- bloque de código
+elseif < comparación > then
+  -- bloque de código
+else 
+  -- bloque de código que se ejecuta si alguna comparación anterior no se cumplio
+end
+```
+
+Ejemplos:
+
+1. Crear un programa que indique de los números cual es el mayor o si son iguales
+
+```lua
+local variable1 = 4
+local variable2 = 7
+
+if variable1 > variable2 then
+  print("El primer valor es mayor que el segundo")
+elseif variable1 < variable2 then
+  print("El segundo valor es mayor que el primero")
+else 
+  print("Ambos valores son iguales")
+end
+```
+
+De todas las formas mostrada esta última es la más corta y eficiente.
+
+2. 
+
+```lua
+```
+
+### Operadores lógicos
+
+Un operador lógico sirve para combinar comparaciones y en función del resultado tomar una decisión, comprende de 3 operadores que son AND, OR y NOT. 
+
+Las tablas de verdad de los operaciones:
+
+**AND**
+
+Entrada 1 | Entrada 2 | Salida
+-|-|-|
+false | false | false
+false | true | false
+true | false | false
+true | true | true
+
+*La regla de **AND** nos dice que mientras exista a la entrada un *false*, tendremos un valor *false* a la salida*
+
+**OR**
+
+Entrada 1 | Entrada 2 | Salida
+-|-|-|
+false | false | false
+false | true | true
+true | false | true
+true | true | true
+
+*La regla de **OR** nos dice que mientras exista a la entrada un *true*, tendremos un valor *true* a la salida*
+
+**NOT**
+
+Entrada| Salida
+-|-|
+false | true
+true | false
+
+*La regla de **NOT** nos dice que todo lo que recibe lo invierte.*
+
+Aplicación de los operadores lógicos
+
+Nombre | Símbolo | Descripción
+-|:-:|-|
+AND| and| (9 > 4) and (3 < 6) &rarr; true
+OR| or| (8 == 3) or (2 ~= 3) &rarr; true
+NOT| not| not(true) &rarr; false
+
+Ejemplos:
+
+1. En una variable almacena la calificación, se debe verificar el valor si escongruente; es decir, calificaciones arriaba de 10 y abajo de 0 no son posibles, la calificación reprobatoria es por debajo de 6 y aprobatoria arriaba de 6.
+
+```lua
+local calificacion = 8
+
+if calificacion > 6 and calicacion <= 10 then
+  print("Has aprobado la asignatura")
+elseif calificacion < 6 and calificacion >= 0 then
+  print("No has aprobado la asignatura")
+else 
+  print("La calificación no es posible")
+end
+```
+
+2. 
