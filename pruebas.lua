@@ -1,17 +1,12 @@
-local valor1 = 100
-local valor2 = 7
-local valor3 = 30
+local texto = "Hola"
+local numero = 3
+local numeroFlotante = 4.2
+local bool = true
+local funcion = print
 
-if valor1 > valor2 then
-  if valor1 > valor3 then
-    print("El primer valor es el mayor")  
-  else
-    print("El valor 3 es el mayor")
-  end
-else 
-  if valor2 > valor3 then
-    print("El valor 2 es el mayor")
-  else
-    print("El valor 3 es el mayor")
-  end
-end
+print(type(texto)) -- string
+print(type(numero)) -- number
+print(type(numeroFlotante)) -- number
+print(type(bool)) -- boolean
+print(type(funcion)) -- function
+print(type(nulo)) -- nil

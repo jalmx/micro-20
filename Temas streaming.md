@@ -24,11 +24,4 @@ Arquitectura harvard y Von Newman
 Qué es software y hardware
 Qué es una Llanta omnidireccional
 
-# Temas Analogicas
-
-- Divisor de tension
-- Semiconductores 
-  - Diodo general
-  - Diodo rectificador
-  - Transistor
 

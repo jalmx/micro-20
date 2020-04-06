@@ -527,6 +527,12 @@ Ejemplo:</li>
 <td>1 / 2 → 0.5</td>
 </tr>
 <tr>
+<td>División</td>
+<td style="text-align:center">//</td>
+<td>Operador de razón, elimina todo después del punto decimal</td>
+<td>1 / 2 → 0</td>
+</tr>
+<tr>
 <td>Módulo</td>
 <td style="text-align:center">%</td>
 <td>Operador de residuo</td>
@@ -861,7 +867,7 @@ Ejemplo:</li>
 </ol>
 <pre class="hljs"><code><div></div></code></pre>
 <h3 id="operadores-l%C3%B3gicos">Operadores lógicos</h3>
-<p>Un operador lógico sirve para combinar comparaciones y en función del resultado tomar una decisión, comprende de 3 operadores que son AND, OR y NOT.</p>
+<p>Un operador lógico sirve para combinar comparaciones y en función del resultado tomar una decisión, comprende de 3 operadores que son <code>AND</code>, <code>OR</code> y <code>NOT</code>. Como las estructuras de control todos los operadores lógicos consideran <code>false</code> y <code>nil</code> como falso y todo lo demás como verdadero.</p>
 <p>Las tablas de verdad de los operaciones:</p>
 <p><strong>AND</strong></p>
 <table>
@@ -991,8 +997,91 @@ Ejemplo:</li>
 <span class="hljs-keyword">end</span>
 </div></code></pre>
 <ol start="2">
-<li></li>
+<li>Realizar un programa que mande un mensaje distinto en función de la calificación obtenida por el alumnos. Ejemplos:
+<ul>
+<li>De tener menos de 6 → &quot;Te falto un poco más&quot;</li>
+<li>De tener de 6 y menos de 7 → &quot;A penitas!&quot;</li>
+<li>De tener de 7 y menos de 8 → &quot;Podemos mejorar&quot;</li>
+<li>De tener de 8 y menos de 9 → &quot;Lo hiciste bien&quot;</li>
+<li>De tener de 9 y menos de 10 → &quot;Muy bien, se refleja tu esfuerzo&quot;</li>
+<li>De tener de 10 → &quot;Excelente!&quot;</li>
+</ul>
+</li>
 </ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> calificacion = <span class="hljs-number">7</span>
+
+<span class="hljs-keyword">if</span> calificacion &lt; <span class="hljs-number">6</span> <span class="hljs-keyword">and</span> calificacion &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+  
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Te falto un poco más"</span>)
+
+<span class="hljs-keyword">elseif</span> calificacion &gt;= <span class="hljs-number">6</span> <span class="hljs-keyword">and</span> calificacion &lt; <span class="hljs-number">7</span> <span class="hljs-keyword">then</span>
+
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"A penitas!"</span>)
+
+<span class="hljs-keyword">elseif</span> calificacion &gt;= <span class="hljs-number">7</span> <span class="hljs-keyword">and</span> calificacion &lt; <span class="hljs-number">8</span> <span class="hljs-keyword">then</span>
+
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Podemos mejorar"</span>)
+
+<span class="hljs-keyword">elseif</span> calificacion &gt;= <span class="hljs-number">8</span> <span class="hljs-keyword">and</span> calificacion &lt; <span class="hljs-number">9</span> <span class="hljs-keyword">then</span>
+
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Lo hiciste bien"</span>)
+
+<span class="hljs-keyword">elseif</span> calificacion &gt;= <span class="hljs-number">9</span> <span class="hljs-keyword">and</span> calificacion &lt; <span class="hljs-number">10</span> <span class="hljs-keyword">then</span>
+
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Muy bien, se refleja tu esfuerzo"</span>)
+
+<span class="hljs-keyword">elseif</span> calificacion == <span class="hljs-number">10</span> <span class="hljs-keyword">then</span>
+  
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Excelente!"</span>)
+
+<span class="hljs-keyword">else</span> 
+
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Calificación no posible"</span>)
+
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<h3 id="tipos-de-datos">Tipos de datos</h3>
+<p><code>Lua</code>es un lenguaje interpretado; es decir, usa un software que lee y las instrucciones de un archivo y con base a eso, el interprete interactua con el sistema operativo y realiza las acciones que se desean.</p>
+<p>Dentro de <code>lua</code>existen los tipos de datos, estos indican que tipo es la variable, aun que a pesar de que por dentro si se identifica su tipo. De está manera es que el interprete sabe como interactuar con las variables.</p>
+<p>La manera de ver los tipos de datos es un función llamada <code>type()</code>; ejemplo:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> texto = <span class="hljs-string">"Hola"</span>
+<span class="hljs-keyword">local</span> numero = <span class="hljs-number">3</span>
+<span class="hljs-keyword">local</span> numeroFlotante = <span class="hljs-number">4.2</span>
+<span class="hljs-keyword">local</span> bool = <span class="hljs-literal">true</span>
+<span class="hljs-keyword">local</span> funcion = <span class="hljs-built_in">print</span>
+<span class="hljs-keyword">local</span> nulo = <span class="hljs-literal">nil</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(texto)) <span class="hljs-comment">-- string</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(numero)) <span class="hljs-comment">-- number</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(numeroFlotante)) <span class="hljs-comment">-- number</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(bool)) <span class="hljs-comment">-- boolean</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(funcion)) <span class="hljs-comment">-- function</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(nulo)) <span class="hljs-comment">-- nil</span>
+</div></code></pre>
+<p>Resultado:</p>
+<pre class="hljs"><code><div>string
+number
+number
+boolean
+function
+nil
+</div></code></pre>
+<h4 id="tipo-string">Tipo string</h4>
+<p>El tipo <code>string</code> es significa <code>cadena de caracteres</code>; es decir, literalmente texto, una variable tipo <code>string</code> puede contener una letra, una palabra, una oración, inclusive números pero cuidado, finalmente es texto. No es lo mismo el valor de <code>1</code> que <code>&quot;1&quot;</code>, el primero es tipo <code>number</code> y el segundo es <code>string</code>. Son tipos distintos aunque sus valores sean los mismo.</p>
+<h4 id="tipo-number">Tipo number</h4>
+<p>El Tipo número abarca tanto valores enteros; es decir, que no tiene punto decimal el valor, como 1,2,3,40,55,100; no contiene coma flotante y los número fraccionarios o con punto decimal</p>
+<h4 id="tipo-boolean">Tipo boolean</h4>
+<h4 id="tipo-nil">Tipo nil</h4>
+<p>Existe un <em>tipo de dato</em> que como tal no es un tipo, se llama <code>nil</code>, es un indicativo de que no existe ninguna referencia hacia esa variable. Es como esta llamando al vacío, a la nada, no existe nada, no hay absolutamente nada.</p>
+<h3 id="entrada-y-salida-de-datos-io">Entrada y salida de datos (I/O)</h3>
+<h4 id="entradas-input">Entradas (Input)</h4>
+<p>Para poder ingresar datos desde la terminal de comandos, existe una libreria llamada <code>io</code> y dentro tiene una función llamada <code>read</code>, la forma de emplearla es <code>io.read()</code>, como argumento puede recibir varios valores, aquí solo se tratará con el argumento <code>&quot;n&quot;</code> y vacío.
+Si no le pasamos ningún argumento por default todo lo que reciba lo tratará como un <code>string</code>, si le pasamos <code>n</code>, todo lo que entre lo manejará como un número, en caso que pongamos una letra, lanzará un error el programa.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> nombre = <span class="hljs-string">""</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"escribe tu nombre"</span>)
+
+</div></code></pre>
 
 </body>
 </html>

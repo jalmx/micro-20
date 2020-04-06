@@ -1,9 +1,0 @@
-{
-    "baudrate": "115200",
-    "port": "/dev/tty.wchusbserial1410",
-    "minify": false,
-    "compile": false,
-    "keeppath": false
-}
-
- 

@@ -186,6 +186,7 @@ Suma| + | Operador de suma| 4 + 3 &rarr; 7
 Resta| - | Operador de resta| 9 - 5 &rarr; 4
 Multiplicación| * | Operador de multiplicación| 3 * 3 &rarr; 6 
 División | / | Operador de razón| 1 / 2 &rarr; 0.5
+División | // | Operador de razón, elimina todo después del punto decimal| 1 / 2 &rarr; 0
 Módulo| % | Operador de residuo| 5 % 3 &rarr; 2
 Potencia| ^ | Operador de potencia| 3 ^ 2 &rarr; 9
 
@@ -531,7 +532,7 @@ De todas las formas mostrada esta última es la más corta y eficiente.
 
 ### Operadores lógicos
 
-Un operador lógico sirve para combinar comparaciones y en función del resultado tomar una decisión, comprende de 3 operadores que son AND, OR y NOT. 
+Un operador lógico sirve para combinar comparaciones y en función del resultado tomar una decisión, comprende de 3 operadores que son `AND`, `OR` y `NOT`. Como las estructuras de control todos los operadores lógicos consideran `false` y `nil` como falso y todo lo demás como verdadero.
 
 Las tablas de verdad de los operaciones:
 
@@ -590,4 +591,107 @@ else
 end
 ```
 
-2. 
+2. Realizar un programa que mande un mensaje distinto en función de la calificación obtenida por el alumnos. Ejemplos: 
+   - De tener menos de 6 &rarr; "Te falto un poco más" 
+   - De tener de 6 y menos de 7 &rarr; "A penitas!"
+   - De tener de 7 y menos de 8 &rarr; "Podemos mejorar"
+   - De tener de 8 y menos de 9 &rarr; "Lo hiciste bien"
+   - De tener de 9 y menos de 10 &rarr; "Muy bien, se refleja tu esfuerzo"
+   - De tener de 10 &rarr; "Excelente!"
+
+```lua
+local calificacion = 7
+
+if calificacion < 6 and calificacion >= 0 then
+  
+  print("Te falto un poco más")
+
+elseif calificacion >= 6 and calificacion < 7 then
+
+  print("A penitas!")
+
+elseif calificacion >= 7 and calificacion < 8 then
+
+  print("Podemos mejorar")
+
+elseif calificacion >= 8 and calificacion < 9 then
+
+  print("Lo hiciste bien")
+
+elseif calificacion >= 9 and calificacion < 10 then
+
+  print("Muy bien, se refleja tu esfuerzo")
+
+elseif calificacion == 10 then
+  
+  print("Excelente!")
+
+else 
+
+  print("Calificación no posible")
+
+end
+```
+
+### Tipos de datos
+
+`Lua`es un lenguaje interpretado; es decir, usa un software que lee y las instrucciones de un archivo y con base a eso, el interprete interactua con el sistema operativo y realiza las acciones que se desean.
+
+Dentro de `lua`existen los tipos de datos, estos indican que tipo es la variable, aun que a pesar de que por dentro si se identifica su tipo. De está manera es que el interprete sabe como interactuar con las variables.
+
+La manera de ver los tipos de datos es un función llamada `type()`; ejemplo:
+
+```lua
+local texto = "Hola"
+local numero = 3
+local numeroFlotante = 4.2
+local bool = true
+local funcion = print
+local nulo = nil
+
+print(type(texto)) -- string
+print(type(numero)) -- number
+print(type(numeroFlotante)) -- number
+print(type(bool)) -- boolean
+print(type(funcion)) -- function
+print(type(nulo)) -- nil
+```
+
+Resultado:
+
+```
+string
+number
+number
+boolean
+function
+nil
+```
+
+#### Tipo string
+
+El tipo `string` es significa `cadena de caracteres`; es decir, literalmente texto, una variable tipo `string` puede contener una letra, una palabra, una oración, inclusive números pero cuidado, finalmente es texto. No es lo mismo el valor de `1` que `"1"`, el primero es tipo `number` y el segundo es `string`. Son tipos distintos aunque sus valores sean los mismo.
+
+#### Tipo number
+
+El Tipo número abarca tanto valores enteros; es decir, que no tiene punto decimal el valor, como 1,2,3,40,55,100; no contiene coma flotante y los número fraccionarios o con punto decimal
+
+#### Tipo boolean
+
+#### Tipo nil
+
+Existe un *tipo de dato* que como tal no es un tipo, se llama `nil`, es un indicativo de que no existe ninguna referencia hacia esa variable. Es como esta llamando al vacío, a la nada, no existe nada, no hay absolutamente nada.
+
+### Entrada y salida de datos (I/O)
+
+#### Entradas (Input)
+
+Para poder ingresar datos desde la terminal de comandos, existe una libreria llamada `io` y dentro tiene una función llamada `read`, la forma de emplearla es `io.read()`, como argumento puede recibir varios valores, aquí solo se tratará con el argumento `"n"` y vacío. 
+Si no le pasamos ningún argumento por default todo lo que reciba lo tratará como un `string`, si le pasamos `n`, todo lo que entre lo manejará como un número, en caso que pongamos una letra, lanzará un error el programa.
+
+```lua 
+local nombre = ""
+
+print("escribe tu nombre")
+
+```
