@@ -10,7 +10,7 @@ Una vez descargado el binario, se descomprime y se debe configurar la variable d
 
 > *Para más detalle ver el siguiente [video](https://www.youtube.com/watch?v=LtNoFZV_Rj4)*
  
-#### Configurando variable de entorno en windows
+#### Configurando variable de entorno en Windows
 
 Esto se realiza para que el sistema operativo reconozca el intérprete de Lua y se pueda usar desde terminal. 
 
@@ -18,7 +18,7 @@ Esto se realiza para que el sistema operativo reconozca el intérprete de Lua y 
 
 #### Terminal
 
-Para mayor comodidad y mejor funcionamiento necesitamos una terminal competente. No es estrictamente necesario pero mejorará nuestra experiencia usando la terminal. Para esto usaremos [git bash](https://git-scm.com/), se descarga de su sitio oficial ([Descargar](https://git-scm.com/)).
+Para mayor comodidad y mejor funcionamiento necesitamos una terminal competente. No es estrictamente necesario, pero mejorará nuestra experiencia usando la terminal. Para esto usaremos [git bash](https://git-scm.com/), se descarga de su sitio oficial ([Descargar](https://git-scm.com/)).
 
 ### MacOS
 
@@ -65,7 +65,7 @@ En nuestro caso, el archivo se llama ```programa1.lua```; por lo tanto, queda de
 lua programa1.lua
 ```
 
-Damos enter. Debiendose ejecutar el programa y veremos en el ```promt```. El siguiente mensaje:
+Damos enter. Debiéndose ejecutar el programa y veremos en el ```promt```. El siguiente mensaje:
 
 ``` bash
 Estoy programando en Lua
@@ -77,28 +77,20 @@ Este procedimiento lo realizaremos cada vez que hagamos nuestros programas.
 
 ### ¿Qué es una variable?
 
-Es un espacio virtual el cual quedará registrado en la memoria; el cual se podrá llamar en diferentes puntos de la programación cuantas veces la necesitemos. A este espacio se le da un nombre que nos indique para qué ha sido creada. Las variables pueden tomar cualquier tipo de valor. Dado que Lua es un lenguaje débilmente tipado, el tipo de la variable se infiere, además se puede cambiar su contenido en cualquier instante, sin importar que tipo era.
+Es un espacio virtual el cual quedará registrado en la memoria; el cual se podrá llamar en diferentes puntos de la programación cuantas veces la necesitemos. A este espacio se le da un nombre que nos indique para qué ha sido creada. Las variables pueden tomar cualquier tipo de valor. Dado que Lua es un lenguaje débilmente tipado, el tipo de la variable se infiere, además se puede cambiar su contenido en cualquier instante, sin importar que tipo era. *Existen tres tipos de variables en Lua*: `globales`, `locales` y `campos de tabla`.
 
 *Ejemplos:*
 
-Variable que almacena la edad:
 ``` lua
-edad = 20
-```
+valor -- tiene asignado nil; es decir sin referencia
 
-Variable que almacena el registro:
-``` lua
-registro = 2
-```
+edad = 20 --Variable que almacena la edad
 
-Variable que almacena un nombre:
-``` lua
-nombre = "Diana"
-```
+registro = 2 -- Variable que almacena un valor de un registro
 
-Variable que almacena una frase:
-``` lua
-nombre = "Aprendiendo programación"
+nombre = "Diana" --Variable que almacena un nombre
+
+nombre = "Aprendiendo programación" --Variable que almacena una frase
 ```
 
 Variable que almacena una función:
@@ -106,6 +98,10 @@ Variable que almacena una función:
 mensaje = function(nombre)
             return "Hola " .. nombre 
           end
+
+function mensaje(nombre)
+  return "Hola " .. nombre 
+end
 ```
 
 ### Comentarios
@@ -157,22 +153,14 @@ Primero que nada, una variable o función jamás podrá comenzar con un número,
 *Ejemplos:*
 
 ```lua
-nombre = "Frida"
-```
+local nombre = "Frida"
 
-```lua
-carroGrande = "Camión"
-```
+local carroGrande = "Camión"
 
-```lua
-numeroDeCasas = 23
-```
+local numeroDeCasas = 23
 
-```lua
-variable1 = 14
-```
+local variable1 = 14
 
-```lua
 mesajeInicio = function (nombre)
                   print("Bienvenido" .. nombre)
                end
@@ -218,7 +206,7 @@ print(potencia) -- 25.0
 
 ## Estructura de decisión
 
-La estructura más basica que existe es la de una decisión, lo cual significa que si a lo que se pregunta es verdadero o no; con base en ello se realiza o no cierta acción.
+La estructura más básica que existe es la de una decisión, lo cual significa que si a lo que se pregunta es verdadero o no; con base en ello se realiza o no cierta acción.
 
 ### Estructura IF
 
@@ -250,7 +238,7 @@ end
 
 ### Operadores de relación
 
-En una comparacíon se realiza una pregunta (pregunta figurativa) en la cual la respuesta solo puede ser *si* o *no*; es decir, *True* o *False*. Para esto los unicos operadores que dan este resultado son los siguientes:
+En una comparación se realiza una pregunta (pregunta figurativa) en la cual la respuesta solo puede ser *si* o *no*; es decir, *True* o *False*. Para esto los únicos operadores que dan este resultado son los siguientes:
 
 Nombre | Símbolo | Descripción
 -|:-:|:-:|
@@ -320,7 +308,7 @@ if n % 2 ~= 0 then
 end
 ```
 
-3. Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprovado, de lo contrario indique un mensaje de motiviación
+3. Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprobado, de lo contrario indique un mensaje de motivación
 
 ```lua
 local cal1 = 8
@@ -334,7 +322,7 @@ if promedio >= 6 then
 end
 
 if promedio < 6 then
-  print("Te falto muy poco para lograrlo, sigue esforzandote")
+  print("Te falto muy poco para lograrlo, sigue esforzándote")
 end
 ```
 
@@ -363,7 +351,7 @@ Los ejemplos anteriores se pueden realizar de una manera más optima, para esto 
 
 Esta forma de la estructura es conocida como *si se cumple la comparación realizo la acción, de lo contrario realizo otra acción*
 
-Sintexis:
+Sintaxis:
 
 ```lua
 if < comparación > then
@@ -401,7 +389,7 @@ else
 end
 ```
 
-3. Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprovado, de lo contrario indique un mensaje de motiviación
+3. Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprobado, de lo contrario indique un mensaje de motivación
 
 ```lua
 local cal1 = 8
@@ -413,7 +401,7 @@ local promedio = (cal1 + cal2 + cal3) / 3
 if promedio >= 6 then
   print("Aprobado con éxito")
 else
-  print("Te falto muy poco para lograrlo, sigue esforzandote")
+  print("Te falto muy poco para lograrlo, sigue esforzándote")
 end
 ```
 
@@ -431,7 +419,7 @@ local variable2 = 7
 
 if variable1 > variable2 then
   print("El primer valor es mayor que el segundo")
-else -- Comienza el bloque else, todo lo que esta dentro de él se ejecuta si la condición previa no se cumple
+else -- Comienza el bloque else, todo lo que está dentro de él se ejecuta si la condición previa no se cumple
   if variable1 < variable2 then -- if dentro de un else
     print("El segundo valor es mayor que el primero")
   else 
@@ -481,7 +469,8 @@ else
 end
 ```
 
-### Forma ifelse
+### Forma elseif
+
 Existe otra forma y es la más usual de usar en un if-else.
 
 Sintaxis:
@@ -502,7 +491,7 @@ if < comparación > then
 elseif < comparación > then
   -- bloque de código
 else 
-  -- bloque de código que se ejecuta si alguna comparación anterior no se cumplio
+  -- bloque de código que se ejecuta si alguna comparación anterior no se cumplió
 end
 ```
 
@@ -534,7 +523,7 @@ De todas las formas mostrada esta última es la más corta y eficiente.
 
 Un operador lógico sirve para combinar comparaciones y en función del resultado tomar una decisión, comprende de 3 operadores que son `AND`, `OR` y `NOT`. Como las estructuras de control todos los operadores lógicos consideran `false` y `nil` como falso y todo lo demás como verdadero.
 
-Las tablas de verdad de los operaciones:
+Las tablas de verdad de los operadores:
 
 **AND**
 
@@ -577,7 +566,7 @@ NOT| not| not(true) &rarr; false
 
 Ejemplos:
 
-1. En una variable almacena la calificación, se debe verificar el valor si escongruente; es decir, calificaciones arriaba de 10 y abajo de 0 no son posibles, la calificación reprobatoria es por debajo de 6 y aprobatoria arriaba de 6.
+1. En una variable almacena la calificación, se debe verificar el valor si es congruente; es decir, calificaciones arriaba de 10 y abajo de 0 no son posibles, la calificación reprobatoria es por debajo de 6 y aprobatoria arriaba de 6.
 
 ```lua
 local calificacion = 8
@@ -591,7 +580,7 @@ else
 end
 ```
 
-2. Realizar un programa que mande un mensaje distinto en función de la calificación obtenida por el alumnos. Ejemplos: 
+2. Realizar un programa que mande un mensaje distinto en función de la calificación obtenida por el alumno. Ejemplos: 
    - De tener menos de 6 &rarr; "Te falto un poco más" 
    - De tener de 6 y menos de 7 &rarr; "A penitas!"
    - De tener de 7 y menos de 8 &rarr; "Podemos mejorar"
@@ -635,9 +624,9 @@ end
 
 ### Tipos de datos
 
-`Lua`es un lenguaje interpretado; es decir, usa un software que lee y las instrucciones de un archivo y con base a eso, el interprete interactua con el sistema operativo y realiza las acciones que se desean.
+`Lua`es un lenguaje interpretado; es decir, usa un software que lee y las instrucciones de un archivo y con base a eso, el intérprete interactúa con el sistema operativo y realiza las acciones que se desean.
 
-Dentro de `lua`existen los tipos de datos, estos indican que tipo es la variable, aun que a pesar de que por dentro si se identifica su tipo. De está manera es que el interprete sabe como interactuar con las variables.
+Dentro de `lua` existen los tipos de datos, estos indican que tipo es la variable, aun que a pesar de que por dentro si se identifica su tipo. De esta manera es que el intérprete sabe cómo interactuar con las variables.
 
 La manera de ver los tipos de datos es un función llamada `type()`; ejemplo:
 
@@ -670,28 +659,276 @@ nil
 
 #### Tipo string
 
-El tipo `string` es significa `cadena de caracteres`; es decir, literalmente texto, una variable tipo `string` puede contener una letra, una palabra, una oración, inclusive números pero cuidado, finalmente es texto. No es lo mismo el valor de `1` que `"1"`, el primero es tipo `number` y el segundo es `string`. Son tipos distintos aunque sus valores sean los mismo.
+El tipo `string` es significa `cadena de caracteres`; es decir, literalmente texto, una variable tipo `string` puede contener una letra, una palabra, una oración, inclusive números, pero cuidado, finalmente es texto. No es lo mismo el valor de `1` que `"1"`, el primero es tipo `number` y el segundo es `string`. Son tipos distintos, aunque sus valores sean los mismo.
+
+**Ejemplos:**
+
+```lua
+local variable = "" -- Está variable es una cadena vacía, pero ya es un string
+local nombre = " " -- contiene un espacio, pero al final es una cadena
+local nombre = "Alejandro" -- Variable con un calor cargado
+local apellido = "Leyva" -- Variable con un calor cargado
+local nombreCompleto = nombre .. " " .. apellido --almaceno el valor de 2 variables y forma un texto completo
+
+```
 
 #### Tipo number
 
-El Tipo número abarca tanto valores enteros; es decir, que no tiene punto decimal el valor, como 1,2,3,40,55,100; no contiene coma flotante y los número fraccionarios o con punto decimal
+El Tipo número abarca tanto valores enteros; es decir, que no tiene punto decimal el valor, como *1, 2, 3, 40, 55, 100*; no contiene coma flotante y los números fraccionarios o con punto decimal, como *1.3, 0.5, 5.30, 4.1, 0.01*
+
+```lua
+
+local valor = 0 -- esta variable es un tipo number, será un valor de cero, pero eso está contenido dentro
+local edad = 30 -- variable con un valor cargado
+local totalRegistros = 10 -- variable con un valor cargado
+local registrosExtras = 3 -- variable con un valor cargado
+local total = totalRegistros + registrosExtras -- La suma de 2 variables las guardo
+```
 
 #### Tipo boolean
 
+Los tipos booleanos son solamente dos valores que son `true`y `false`, esto indica que algo se `cumple` o `no se cumple`. Este tipo de variable normalmente se usa para conocer el estado (`status`) de alguna situación, para que con base en ello realicemos otra acción. 
+
+*Tanto `false` como `nil` se consideran falsos. Todos los valores diferentes de `nil` y `false` se consideran verdaderos (en particular, el número 0 y el string vacío son también verdaderos).*
+
+**Ejemplo:**
+
+```lua
+local status = true
+
+if status then
+  print("Es estado es ok")
+else 
+  print("En estado de falla")
+end
+```
+
 #### Tipo nil
 
-Existe un *tipo de dato* que como tal no es un tipo, se llama `nil`, es un indicativo de que no existe ninguna referencia hacia esa variable. Es como esta llamando al vacío, a la nada, no existe nada, no hay absolutamente nada.
+Existe un *tipo de dato* que como tal no es un tipo, se llama `nil`, es un indicativo de que no existe ninguna referencia hacia esa variable. Es como estar llamando al vacío, a la nada, no existe nada, no hay absolutamente nada.
+
+**Ejemplo**
+
+```lua
+
+local sinReferencia = nil
+
+if sinReferencia == nil then
+  print("No existe referencia a la variable")
+end
+```
 
 ### Entrada y salida de datos (I/O)
 
+#### Salidas (Output)
+
+Para mandar una impresión a pantalla o salida a pantalla usamos la función `print`, la cual manda un mensaje a la pantalla con el texto que le hayamos dado. Podemos pasar el texto directamente y concatenar las variables o se puede pasar separados por coma, solo que en este segundo caso 
+
+**Concatenación**
+
+Cuando queremos unir, pegar o sumar, varios textos para formar una oración completa es la acción de concatenar variables o textos, esto se realiza con dos puntos `..`.
+
+**Ejemplo**
+
+```lua
+-- Concatenando variables
+local nombre = "Alejandro"
+local edad = 30
+
+print(nombre .. " tiene una edad de " .. edad )
+
+
+-- Separador por comas
+print(nombre, "tiene una edad de", edad)
+```
+*Salida*
+```
+Alejandro tiene una edad de 30
+Alejandro       tiene una edad de       30
+```
+
+**Secuencias de escape**
+
+Una secuencia de escape es para dar énfasis o dar mejor formato a nuestro mensaje, el cual se manda a la pantalla.
+
+Nombre|Símbolo|
+-|:-:|-|
+Salto de línea| **\n**| 
+Tabulador horizontal| **\t**| 
+Tabulador vertical| **\v**| 
+Backslash| **\\**| 
+Doble comilla| **\"**| 
+Comilla simple| **\'**| 
+Retorno de carro| **\r**| 
+
+Ejemplo:
+
+```lua
+-- Tomar en cuenta que no se deja espacio, entre el texto y la secuencia de escape
+print("Programando \nen\nLua") 
+print("Programando \ten\tLua")
+print("Programando \ven\vLua")
+print("\"Programando en Lua\"")
+print("\'Programando en Lua\'")
+print("\\Programando en Lua\\")
+print("Programando \ren\rLua")
+```
+
+*Salida*
+
+```
+Programando 
+en
+Lua
+Programando     en      Lua
+Programando 
+            en
+              Lua
+"Programando en Lua"
+'Programando en Lua'
+\Programando en Lua\
+Luagramando 
+```
+
 #### Entradas (Input)
 
-Para poder ingresar datos desde la terminal de comandos, existe una libreria llamada `io` y dentro tiene una función llamada `read`, la forma de emplearla es `io.read()`, como argumento puede recibir varios valores, aquí solo se tratará con el argumento `"n"` y vacío. 
+Para poder ingresar datos desde la terminal de comandos, existe una librería llamada `io` y dentro tiene una función llamada `read`, la forma de emplearla es `io.read()`, como argumento puede recibir varios valores, aquí solo se tratará con el argumento `"n"` y vacío. 
 Si no le pasamos ningún argumento por default todo lo que reciba lo tratará como un `string`, si le pasamos `n`, todo lo que entre lo manejará como un número, en caso que pongamos una letra, lanzará un error el programa.
 
 ```lua 
-local nombre = ""
-
 print("escribe tu nombre")
 
+local nombre = io.read() -- al no pasarle argumentos, lo que reciba será tratado como tipo string
+
+print("Hola " .. nombre)
 ```
+
+*Salida*
+
+```
+escribe tu nombre
+arturo
+Hola arturo
+```
+
+#### Alcance de variables (Scope)
+
+Como ya se mencionó las `variables` tienen un alcance global por default; es decir, al momento de declararlas se vuelven de ámbito global a menos que se indique lo contrario, la forma de declarar variables que solo existan en el ámbito que fue creado es con la palabra reservada `local`.
+
+Al escribir `local` indicamos que solo exista en el contexto o alcance de esa sección o estructura. Al hacer esto evitamos entrar en conflictos con otras variables que puedan existir dentro de las librerías de lua o inclusive en otros archivos que hayamos creado. Además, de ser una buena práctica.
+
+**Ejemplos:**
+
+```lua
+-- Las variables que se ven declaradas aquí solo existirán dentro del documento en las instancie, fuera de este archivo nadie más puede tener acceso ni modificarlas directamente
+
+local a = 3
+local b = 6
+
+print(a+b) -- 9 
+
+-- 
+
+local suma = 0
+
+if suma == 0 then
+  local n = 3 -- la variable n solo existe dentro del if, fuera de él sale de su alcance
+  suma = suma + n -- 0 + 3
+end
+
+print(n) -- nil
+
+```
+
+### Estructuras de repetición o ciclos (loop)
+
+Las estructuras de repetición son sentencias para realizar una tarea repetitiva, la cual necesitamos repetir cierta de cantidad de veces o en ocasiones infinidad de veces. Para esto contamos con `while`, `repeat` y `for`.
+
+#### While
+
+Un ciclo `while` se lee como: "Mientras la condición se cumpla has ..."
+
+Estructura de un `while`
+
+```lua
+
+while < condición > do 
+  -- código que se repetirá hasta que la comparación sea false
+end
+```
+
+**Ejemplo:**
+
+1. Imprimir la tabla del 7, vaya 7 x 1 = 7, hasta 7 x 10 = 70. Una vez cuente hasta el 10, terminará.
+
+```lua
+-- Una opción
+local tabla = 7
+local contador = 1
+
+while contador <= 10 do
+  local multiplicacion = tabla * contador
+  print(tabla .. "x" .. contador .. "=" ..  multiplicacion)
+  contador = contador + 1
+end
+
+-- Segunda opción
+local contador = 1
+local tabla = 7
+local tope = 7 * 10
+local multiplicacion = 0
+
+while multiplicacion < tope do
+  multiplicacion = tabla * contador
+  print(tabla .. "x" .. contador .. "=" ..  multiplicacion)
+  contador = contador + 1
+end
+```
+
+2. Solicitar al usuario la tabla que desea conocer y hasta donde desea conocerla.
+
+```lua
+local contador = 1
+
+print("Qué tabla quieres conocer?")
+local tabla = io.read("n")
+print("Dar el límite de la tabla?")
+local tope =  io.read("n")
+
+while contador <= tope do
+    local multiplicacion = tabla * contador
+    print(tabla .. "x" .. contador .. "=" ..  multiplicacion)
+    contador = contador + 1
+end
+```
+
+#### Break
+
+En ocasiones por algún motivo queremos terminar un ciclo abruptamente; es decir, no necesitamos que termine, queremos cortar antes de que termine o simplemente lo hicimos infinito y por medio de algo queremos que se acabe antes. Bueno para todo esto tenemos una palabra que rompe que ciclo, llamada `break`.
+
+**Ejemplos:**
+
+1. Sumar números dados por el usuario y cuando de -1 salga, rompiendo el ciclo  
+
+```lua
+local salir = 0
+local suma = 0
+
+while true do
+  print("Dar un valor a sumar")
+  local valor = io.read("n")
+  suma = suma + valor
+  print("0) Continuar sumando\n1)Salir")
+  local salir = io.read("n")
+  if salir == 1 then
+    break 
+  end 
+end
+
+print("La suma es: " .. suma)
+```
+*Nota: Este ejercicio hay muchas otras formas de realizarlo, pero para ejemplificar el uso de `break`.*
+
+## Referencias
+
+[Manual de Lua en español](https://www.lua.org/manual/5.1/es/manual.html)

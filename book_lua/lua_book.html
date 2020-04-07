@@ -385,13 +385,13 @@ blockquote {
 <blockquote>
 <p><em>Para más detalle ver el siguiente <a href="https://www.youtube.com/watch?v=LtNoFZV_Rj4">video</a></em></p>
 </blockquote>
-<h4 id="configurando-variable-de-entorno-en-windows">Configurando variable de entorno en windows</h4>
+<h4 id="configurando-variable-de-entorno-en-windows">Configurando variable de entorno en Windows</h4>
 <p>Esto se realiza para que el sistema operativo reconozca el intérprete de Lua y se pueda usar desde terminal.</p>
 <blockquote>
 <p><em>Ver más detalles en el siguiente <a href="https://www.youtube.com/watch?v=LtNoFZV_Rj4">video</a></em></p>
 </blockquote>
 <h4 id="terminal">Terminal</h4>
-<p>Para mayor comodidad y mejor funcionamiento necesitamos una terminal competente. No es estrictamente necesario pero mejorará nuestra experiencia usando la terminal. Para esto usaremos <a href="https://git-scm.com/">git bash</a>, se descarga de su sitio oficial (<a href="https://git-scm.com/">Descargar</a>).</p>
+<p>Para mayor comodidad y mejor funcionamiento necesitamos una terminal competente. No es estrictamente necesario, pero mejorará nuestra experiencia usando la terminal. Para esto usaremos <a href="https://git-scm.com/">git bash</a>, se descarga de su sitio oficial (<a href="https://git-scm.com/">Descargar</a>).</p>
 <h3 id="macos">MacOS</h3>
 <p>En caso de Mac se utiliza el gestor de paquetes <code>brew</code>. Abrimos la terminal que y se escribe la siguiente instrucción:</p>
 <pre class="hljs"><code><div>brew install lua
@@ -418,30 +418,32 @@ blockquote {
 <p>En nuestro caso, el archivo se llama <code>programa1.lua</code>; por lo tanto, queda de la siguiente forma:</p>
 <pre class="hljs"><code><div>lua programa1.lua
 </div></code></pre>
-<p>Damos enter. Debiendose ejecutar el programa y veremos en el <code>promt</code>. El siguiente mensaje:</p>
+<p>Damos enter. Debiéndose ejecutar el programa y veremos en el <code>promt</code>. El siguiente mensaje:</p>
 <pre class="hljs"><code><div>Estoy programando en Lua
 </div></code></pre>
 <p>Este procedimiento lo realizaremos cada vez que hagamos nuestros programas.</p>
 <h2 id="conceptos-b%C3%A1sicos">Conceptos básicos</h2>
 <h3 id="%C2%BFqu%C3%A9-es-una-variable">¿Qué es una variable?</h3>
-<p>Es un espacio virtual el cual quedará registrado en la memoria; el cual se podrá llamar en diferentes puntos de la programación cuantas veces la necesitemos. A este espacio se le da un nombre que nos indique para qué ha sido creada. Las variables pueden tomar cualquier tipo de valor. Dado que Lua es un lenguaje débilmente tipado, el tipo de la variable se infiere, además se puede cambiar su contenido en cualquier instante, sin importar que tipo era.</p>
+<p>Es un espacio virtual el cual quedará registrado en la memoria; el cual se podrá llamar en diferentes puntos de la programación cuantas veces la necesitemos. A este espacio se le da un nombre que nos indique para qué ha sido creada. Las variables pueden tomar cualquier tipo de valor. Dado que Lua es un lenguaje débilmente tipado, el tipo de la variable se infiere, además se puede cambiar su contenido en cualquier instante, sin importar que tipo era. <em>Existen tres tipos de variables en Lua</em>: <code>globales</code>, <code>locales</code> y <code>campos de tabla</code>.</p>
 <p><em>Ejemplos:</em></p>
-<p>Variable que almacena la edad:</p>
-<pre class="hljs"><code><div>edad = <span class="hljs-number">20</span>
-</div></code></pre>
-<p>Variable que almacena el registro:</p>
-<pre class="hljs"><code><div>registro = <span class="hljs-number">2</span>
-</div></code></pre>
-<p>Variable que almacena un nombre:</p>
-<pre class="hljs"><code><div>nombre = <span class="hljs-string">"Diana"</span>
-</div></code></pre>
-<p>Variable que almacena una frase:</p>
-<pre class="hljs"><code><div>nombre = <span class="hljs-string">"Aprendiendo programación"</span>
+<pre class="hljs"><code><div>valor <span class="hljs-comment">-- tiene asignado nil; es decir sin referencia</span>
+
+edad = <span class="hljs-number">20</span> <span class="hljs-comment">--Variable que almacena la edad</span>
+
+registro = <span class="hljs-number">2</span> <span class="hljs-comment">-- Variable que almacena un valor de un registro</span>
+
+nombre = <span class="hljs-string">"Diana"</span> <span class="hljs-comment">--Variable que almacena un nombre</span>
+
+nombre = <span class="hljs-string">"Aprendiendo programación"</span> <span class="hljs-comment">--Variable que almacena una frase</span>
 </div></code></pre>
 <p>Variable que almacena una función:</p>
 <pre class="hljs"><code><div>mensaje = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(nombre)</span></span>
             <span class="hljs-keyword">return</span> <span class="hljs-string">"Hola "</span> .. nombre 
           <span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mensaje</span><span class="hljs-params">(nombre)</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-string">"Hola "</span> .. nombre 
+<span class="hljs-keyword">end</span>
 </div></code></pre>
 <h3 id="comentarios">Comentarios</h3>
 <p>Un comentario es un texto que define el programador, para saber y recordar qué hace una función o línea de código.
@@ -479,15 +481,15 @@ Ejemplo:</li>
 <p>La forma de nombrarlas es que el nombre de la variable o función comienza <strong>siempre</strong> en minúscula y se el nombre es largo la siguiente palabra sin dejar espacio se escribe con mayúscula</p>
 <p>Primero que nada, una variable o función jamás podrá comenzar con un número, ni símbolos, <strong>siempre</strong> debe ser por letras.</p>
 <p><em>Ejemplos:</em></p>
-<pre class="hljs"><code><div>nombre = <span class="hljs-string">"Frida"</span>
-</div></code></pre>
-<pre class="hljs"><code><div>carroGrande = <span class="hljs-string">"Camión"</span>
-</div></code></pre>
-<pre class="hljs"><code><div>numeroDeCasas = <span class="hljs-number">23</span>
-</div></code></pre>
-<pre class="hljs"><code><div>variable1 = <span class="hljs-number">14</span>
-</div></code></pre>
-<pre class="hljs"><code><div>mesajeInicio = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(nombre)</span></span>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> nombre = <span class="hljs-string">"Frida"</span>
+
+<span class="hljs-keyword">local</span> carroGrande = <span class="hljs-string">"Camión"</span>
+
+<span class="hljs-keyword">local</span> numeroDeCasas = <span class="hljs-number">23</span>
+
+<span class="hljs-keyword">local</span> variable1 = <span class="hljs-number">14</span>
+
+mesajeInicio = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(nombre)</span></span>
                   <span class="hljs-built_in">print</span>(<span class="hljs-string">"Bienvenido"</span> .. nombre)
                <span class="hljs-keyword">end</span>
 </div></code></pre>
@@ -569,7 +571,7 @@ Ejemplo:</li>
 
 </div></code></pre>
 <h2 id="estructura-de-decisi%C3%B3n">Estructura de decisión</h2>
-<p>La estructura más basica que existe es la de una decisión, lo cual significa que si a lo que se pregunta es verdadero o no; con base en ello se realiza o no cierta acción.</p>
+<p>La estructura más básica que existe es la de una decisión, lo cual significa que si a lo que se pregunta es verdadero o no; con base en ello se realiza o no cierta acción.</p>
 <h3 id="estructura-if">Estructura IF</h3>
 <p>Se muestra la estructura <strong>if</strong> a continuación</p>
 <pre class="hljs"><code><div><span class="hljs-comment">-- Forma de leer el bloque if</span>
@@ -592,7 +594,7 @@ Ejemplo:</li>
 <span class="hljs-keyword">end</span>
 </div></code></pre>
 <h3 id="operadores-de-relaci%C3%B3n">Operadores de relación</h3>
-<p>En una comparacíon se realiza una pregunta (pregunta figurativa) en la cual la respuesta solo puede ser <em>si</em> o <em>no</em>; es decir, <em>True</em> o <em>False</em>. Para esto los unicos operadores que dan este resultado son los siguientes:</p>
+<p>En una comparación se realiza una pregunta (pregunta figurativa) en la cual la respuesta solo puede ser <em>si</em> o <em>no</em>; es decir, <em>True</em> o <em>False</em>. Para esto los únicos operadores que dan este resultado son los siguientes:</p>
 <table>
 <thead>
 <tr>
@@ -689,7 +691,7 @@ Ejemplo:</li>
 <span class="hljs-keyword">end</span>
 </div></code></pre>
 <ol start="3">
-<li>Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprovado, de lo contrario indique un mensaje de motiviación</li>
+<li>Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprobado, de lo contrario indique un mensaje de motivación</li>
 </ol>
 <pre class="hljs"><code><div><span class="hljs-keyword">local</span> cal1 = <span class="hljs-number">8</span>
 <span class="hljs-keyword">local</span> cal2 = <span class="hljs-number">5</span>
@@ -702,7 +704,7 @@ Ejemplo:</li>
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-keyword">if</span> promedio &lt; <span class="hljs-number">6</span> <span class="hljs-keyword">then</span>
-  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Te falto muy poco para lograrlo, sigue esforzandote"</span>)
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Te falto muy poco para lograrlo, sigue esforzándote"</span>)
 <span class="hljs-keyword">end</span>
 </div></code></pre>
 <ol start="4">
@@ -726,7 +728,7 @@ Ejemplo:</li>
 <p>Los ejemplos anteriores se pueden realizar de una manera más optima, para esto veremos el siguiente tema.</p>
 <h3 id="estructura-if-else">Estructura if else</h3>
 <p>Esta forma de la estructura es conocida como <em>si se cumple la comparación realizo la acción, de lo contrario realizo otra acción</em></p>
-<p>Sintexis:</p>
+<p>Sintaxis:</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">if</span> &lt; comparación &gt; <span class="hljs-keyword">then</span>
   <span class="hljs-comment">-- bloque de código que se ejecuta si la comparación es verdadera</span>
 <span class="hljs-keyword">else</span> 
@@ -758,7 +760,7 @@ Ejemplo:</li>
 <span class="hljs-keyword">end</span>
 </div></code></pre>
 <ol start="3">
-<li>Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprovado, de lo contrario indique un mensaje de motiviación</li>
+<li>Hacer un programa que calcule el promedio de 3 calificaciones, si es mayor a 6, que indique de un mensaje de aprobado, de lo contrario indique un mensaje de motivación</li>
 </ol>
 <pre class="hljs"><code><div><span class="hljs-keyword">local</span> cal1 = <span class="hljs-number">8</span>
 <span class="hljs-keyword">local</span> cal2 = <span class="hljs-number">5</span>
@@ -769,7 +771,7 @@ Ejemplo:</li>
 <span class="hljs-keyword">if</span> promedio &gt;= <span class="hljs-number">6</span> <span class="hljs-keyword">then</span>
   <span class="hljs-built_in">print</span>(<span class="hljs-string">"Aprobado con éxito"</span>)
 <span class="hljs-keyword">else</span>
-  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Te falto muy poco para lograrlo, sigue esforzandote"</span>)
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Te falto muy poco para lograrlo, sigue esforzándote"</span>)
 <span class="hljs-keyword">end</span>
 </div></code></pre>
 <h3 id="if-anidado">If anidado</h3>
@@ -783,7 +785,7 @@ Ejemplo:</li>
 
 <span class="hljs-keyword">if</span> variable1 &gt; variable2 <span class="hljs-keyword">then</span>
   <span class="hljs-built_in">print</span>(<span class="hljs-string">"El primer valor es mayor que el segundo"</span>)
-<span class="hljs-keyword">else</span> <span class="hljs-comment">-- Comienza el bloque else, todo lo que esta dentro de él se ejecuta si la condición previa no se cumple</span>
+<span class="hljs-keyword">else</span> <span class="hljs-comment">-- Comienza el bloque else, todo lo que está dentro de él se ejecuta si la condición previa no se cumple</span>
   <span class="hljs-keyword">if</span> variable1 &lt; variable2 <span class="hljs-keyword">then</span> <span class="hljs-comment">-- if dentro de un else</span>
     <span class="hljs-built_in">print</span>(<span class="hljs-string">"El segundo valor es mayor que el primero"</span>)
   <span class="hljs-keyword">else</span> 
@@ -828,7 +830,7 @@ Ejemplo:</li>
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </div></code></pre>
-<h3 id="forma-ifelse">Forma ifelse</h3>
+<h3 id="forma-elseif">Forma elseif</h3>
 <p>Existe otra forma y es la más usual de usar en un if-else.</p>
 <p>Sintaxis:</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">if</span> &lt; comparación &gt; <span class="hljs-keyword">then</span>
@@ -843,7 +845,7 @@ Ejemplo:</li>
 <span class="hljs-keyword">elseif</span> &lt; comparación &gt; <span class="hljs-keyword">then</span>
   <span class="hljs-comment">-- bloque de código</span>
 <span class="hljs-keyword">else</span> 
-  <span class="hljs-comment">-- bloque de código que se ejecuta si alguna comparación anterior no se cumplio</span>
+  <span class="hljs-comment">-- bloque de código que se ejecuta si alguna comparación anterior no se cumplió</span>
 <span class="hljs-keyword">end</span>
 </div></code></pre>
 <p>Ejemplos:</p>
@@ -868,7 +870,7 @@ Ejemplo:</li>
 <pre class="hljs"><code><div></div></code></pre>
 <h3 id="operadores-l%C3%B3gicos">Operadores lógicos</h3>
 <p>Un operador lógico sirve para combinar comparaciones y en función del resultado tomar una decisión, comprende de 3 operadores que son <code>AND</code>, <code>OR</code> y <code>NOT</code>. Como las estructuras de control todos los operadores lógicos consideran <code>false</code> y <code>nil</code> como falso y todo lo demás como verdadero.</p>
-<p>Las tablas de verdad de los operaciones:</p>
+<p>Las tablas de verdad de los operadores:</p>
 <p><strong>AND</strong></p>
 <table>
 <thead>
@@ -984,7 +986,7 @@ Ejemplo:</li>
 </table>
 <p>Ejemplos:</p>
 <ol>
-<li>En una variable almacena la calificación, se debe verificar el valor si escongruente; es decir, calificaciones arriaba de 10 y abajo de 0 no son posibles, la calificación reprobatoria es por debajo de 6 y aprobatoria arriaba de 6.</li>
+<li>En una variable almacena la calificación, se debe verificar el valor si es congruente; es decir, calificaciones arriaba de 10 y abajo de 0 no son posibles, la calificación reprobatoria es por debajo de 6 y aprobatoria arriaba de 6.</li>
 </ol>
 <pre class="hljs"><code><div><span class="hljs-keyword">local</span> calificacion = <span class="hljs-number">8</span>
 
@@ -997,7 +999,7 @@ Ejemplo:</li>
 <span class="hljs-keyword">end</span>
 </div></code></pre>
 <ol start="2">
-<li>Realizar un programa que mande un mensaje distinto en función de la calificación obtenida por el alumnos. Ejemplos:
+<li>Realizar un programa que mande un mensaje distinto en función de la calificación obtenida por el alumno. Ejemplos:
 <ul>
 <li>De tener menos de 6 → &quot;Te falto un poco más&quot;</li>
 <li>De tener de 6 y menos de 7 → &quot;A penitas!&quot;</li>
@@ -1041,8 +1043,8 @@ Ejemplo:</li>
 <span class="hljs-keyword">end</span>
 </div></code></pre>
 <h3 id="tipos-de-datos">Tipos de datos</h3>
-<p><code>Lua</code>es un lenguaje interpretado; es decir, usa un software que lee y las instrucciones de un archivo y con base a eso, el interprete interactua con el sistema operativo y realiza las acciones que se desean.</p>
-<p>Dentro de <code>lua</code>existen los tipos de datos, estos indican que tipo es la variable, aun que a pesar de que por dentro si se identifica su tipo. De está manera es que el interprete sabe como interactuar con las variables.</p>
+<p><code>Lua</code>es un lenguaje interpretado; es decir, usa un software que lee y las instrucciones de un archivo y con base a eso, el intérprete interactúa con el sistema operativo y realiza las acciones que se desean.</p>
+<p>Dentro de <code>lua</code> existen los tipos de datos, estos indican que tipo es la variable, aun que a pesar de que por dentro si se identifica su tipo. De esta manera es que el intérprete sabe cómo interactuar con las variables.</p>
 <p>La manera de ver los tipos de datos es un función llamada <code>type()</code>; ejemplo:</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">local</span> texto = <span class="hljs-string">"Hola"</span>
 <span class="hljs-keyword">local</span> numero = <span class="hljs-number">3</span>
@@ -1067,21 +1069,243 @@ function
 nil
 </div></code></pre>
 <h4 id="tipo-string">Tipo string</h4>
-<p>El tipo <code>string</code> es significa <code>cadena de caracteres</code>; es decir, literalmente texto, una variable tipo <code>string</code> puede contener una letra, una palabra, una oración, inclusive números pero cuidado, finalmente es texto. No es lo mismo el valor de <code>1</code> que <code>&quot;1&quot;</code>, el primero es tipo <code>number</code> y el segundo es <code>string</code>. Son tipos distintos aunque sus valores sean los mismo.</p>
-<h4 id="tipo-number">Tipo number</h4>
-<p>El Tipo número abarca tanto valores enteros; es decir, que no tiene punto decimal el valor, como 1,2,3,40,55,100; no contiene coma flotante y los número fraccionarios o con punto decimal</p>
-<h4 id="tipo-boolean">Tipo boolean</h4>
-<h4 id="tipo-nil">Tipo nil</h4>
-<p>Existe un <em>tipo de dato</em> que como tal no es un tipo, se llama <code>nil</code>, es un indicativo de que no existe ninguna referencia hacia esa variable. Es como esta llamando al vacío, a la nada, no existe nada, no hay absolutamente nada.</p>
-<h3 id="entrada-y-salida-de-datos-io">Entrada y salida de datos (I/O)</h3>
-<h4 id="entradas-input">Entradas (Input)</h4>
-<p>Para poder ingresar datos desde la terminal de comandos, existe una libreria llamada <code>io</code> y dentro tiene una función llamada <code>read</code>, la forma de emplearla es <code>io.read()</code>, como argumento puede recibir varios valores, aquí solo se tratará con el argumento <code>&quot;n&quot;</code> y vacío.
-Si no le pasamos ningún argumento por default todo lo que reciba lo tratará como un <code>string</code>, si le pasamos <code>n</code>, todo lo que entre lo manejará como un número, en caso que pongamos una letra, lanzará un error el programa.</p>
-<pre class="hljs"><code><div><span class="hljs-keyword">local</span> nombre = <span class="hljs-string">""</span>
-
-<span class="hljs-built_in">print</span>(<span class="hljs-string">"escribe tu nombre"</span>)
+<p>El tipo <code>string</code> es significa <code>cadena de caracteres</code>; es decir, literalmente texto, una variable tipo <code>string</code> puede contener una letra, una palabra, una oración, inclusive números, pero cuidado, finalmente es texto. No es lo mismo el valor de <code>1</code> que <code>&quot;1&quot;</code>, el primero es tipo <code>number</code> y el segundo es <code>string</code>. Son tipos distintos, aunque sus valores sean los mismo.</p>
+<p><strong>Ejemplos:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> variable = <span class="hljs-string">""</span> <span class="hljs-comment">-- Está variable es una cadena vacía, pero ya es un string</span>
+<span class="hljs-keyword">local</span> nombre = <span class="hljs-string">" "</span> <span class="hljs-comment">-- contiene un espacio, pero al final es una cadena</span>
+<span class="hljs-keyword">local</span> nombre = <span class="hljs-string">"Alejandro"</span> <span class="hljs-comment">-- Variable con un calor cargado</span>
+<span class="hljs-keyword">local</span> apellido = <span class="hljs-string">"Leyva"</span> <span class="hljs-comment">-- Variable con un calor cargado</span>
+<span class="hljs-keyword">local</span> nombreCompleto = nombre .. <span class="hljs-string">" "</span> .. apellido <span class="hljs-comment">--almaceno el valor de 2 variables y forma un texto completo</span>
 
 </div></code></pre>
+<h4 id="tipo-number">Tipo number</h4>
+<p>El Tipo número abarca tanto valores enteros; es decir, que no tiene punto decimal el valor, como <em>1, 2, 3, 40, 55, 100</em>; no contiene coma flotante y los números fraccionarios o con punto decimal, como <em>1.3, 0.5, 5.30, 4.1, 0.01</em></p>
+<pre class="hljs"><code><div>
+<span class="hljs-keyword">local</span> valor = <span class="hljs-number">0</span> <span class="hljs-comment">-- esta variable es un tipo number, será un valor de cero, pero eso está contenido dentro</span>
+<span class="hljs-keyword">local</span> edad = <span class="hljs-number">30</span> <span class="hljs-comment">-- variable con un valor cargado</span>
+<span class="hljs-keyword">local</span> totalRegistros = <span class="hljs-number">10</span> <span class="hljs-comment">-- variable con un valor cargado</span>
+<span class="hljs-keyword">local</span> registrosExtras = <span class="hljs-number">3</span> <span class="hljs-comment">-- variable con un valor cargado</span>
+<span class="hljs-keyword">local</span> total = totalRegistros + registrosExtras <span class="hljs-comment">-- La suma de 2 variables las guardo</span>
+</div></code></pre>
+<h4 id="tipo-boolean">Tipo boolean</h4>
+<p>Los tipos booleanos son solamente dos valores que son <code>true</code>y <code>false</code>, esto indica que algo se <code>cumple</code> o <code>no se cumple</code>. Este tipo de variable normalmente se usa para conocer el estado (<code>status</code>) de alguna situación, para que con base en ello realicemos otra acción.</p>
+<p><em>Tanto <code>false</code> como <code>nil</code> se consideran falsos. Todos los valores diferentes de <code>nil</code> y <code>false</code> se consideran verdaderos (en particular, el número 0 y el string vacío son también verdaderos).</em></p>
+<p><strong>Ejemplo:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> <span class="hljs-built_in">status</span> = <span class="hljs-literal">true</span>
+
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">status</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Es estado es ok"</span>)
+<span class="hljs-keyword">else</span> 
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"En estado de falla"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<h4 id="tipo-nil">Tipo nil</h4>
+<p>Existe un <em>tipo de dato</em> que como tal no es un tipo, se llama <code>nil</code>, es un indicativo de que no existe ninguna referencia hacia esa variable. Es como estar llamando al vacío, a la nada, no existe nada, no hay absolutamente nada.</p>
+<p><strong>Ejemplo</strong></p>
+<pre class="hljs"><code><div>
+<span class="hljs-keyword">local</span> sinReferencia = <span class="hljs-literal">nil</span>
+
+<span class="hljs-keyword">if</span> sinReferencia == <span class="hljs-literal">nil</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"No existe referencia a la variable"</span>)
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<h3 id="entrada-y-salida-de-datos-io">Entrada y salida de datos (I/O)</h3>
+<h4 id="salidas-output">Salidas (Output)</h4>
+<p>Para mandar una impresión a pantalla o salida a pantalla usamos la función <code>print</code>, la cual manda un mensaje a la pantalla con el texto que le hayamos dado. Podemos pasar el texto directamente y concatenar las variables o se puede pasar separados por coma, solo que en este segundo caso</p>
+<p><strong>Concatenación</strong></p>
+<p>Cuando queremos unir, pegar o sumar, varios textos para formar una oración completa es la acción de concatenar variables o textos, esto se realiza con dos puntos <code>..</code>.</p>
+<p><strong>Ejemplo</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Concatenando variables</span>
+<span class="hljs-keyword">local</span> nombre = <span class="hljs-string">"Alejandro"</span>
+<span class="hljs-keyword">local</span> edad = <span class="hljs-number">30</span>
+
+<span class="hljs-built_in">print</span>(nombre .. <span class="hljs-string">" tiene una edad de "</span> .. edad )
+
+
+<span class="hljs-comment">-- Separador por comas</span>
+<span class="hljs-built_in">print</span>(nombre, <span class="hljs-string">"tiene una edad de"</span>, edad)
+</div></code></pre>
+<p><em>Salida</em></p>
+<pre class="hljs"><code><div>Alejandro tiene una edad de 30
+Alejandro       tiene una edad de       30
+</div></code></pre>
+<p><strong>Secuencias de escape</strong></p>
+<p>Una secuencia de escape es para dar énfasis o dar mejor formato a nuestro mensaje, el cual se manda a la pantalla.</p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th style="text-align:center">Símbolo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Salto de línea</td>
+<td style="text-align:center"><strong>\n</strong></td>
+</tr>
+<tr>
+<td>Tabulador horizontal</td>
+<td style="text-align:center"><strong>\t</strong></td>
+</tr>
+<tr>
+<td>Tabulador vertical</td>
+<td style="text-align:center"><strong>\v</strong></td>
+</tr>
+<tr>
+<td>Backslash</td>
+<td style="text-align:center"><strong>\</strong></td>
+</tr>
+<tr>
+<td>Doble comilla</td>
+<td style="text-align:center"><strong>&quot;</strong></td>
+</tr>
+<tr>
+<td>Comilla simple</td>
+<td style="text-align:center"><strong>'</strong></td>
+</tr>
+<tr>
+<td>Retorno de carro</td>
+<td style="text-align:center"><strong>\r</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Tomar en cuenta que no se deja espacio, entre el texto y la secuencia de escape</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Programando \nen\nLua"</span>) 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Programando \ten\tLua"</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Programando \ven\vLua"</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"\"Programando en Lua\""</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"\'Programando en Lua\'"</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"\\Programando en Lua\\"</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Programando \ren\rLua"</span>)
+</div></code></pre>
+<p><em>Salida</em></p>
+<pre class="hljs"><code><div>Programando 
+en
+Lua
+Programando     en      Lua
+Programando 
+            en
+              Lua
+&quot;Programando en Lua&quot;
+'Programando en Lua'
+\Programando en Lua\
+Luagramando 
+</div></code></pre>
+<h4 id="entradas-input">Entradas (Input)</h4>
+<p>Para poder ingresar datos desde la terminal de comandos, existe una librería llamada <code>io</code> y dentro tiene una función llamada <code>read</code>, la forma de emplearla es <code>io.read()</code>, como argumento puede recibir varios valores, aquí solo se tratará con el argumento <code>&quot;n&quot;</code> y vacío.
+Si no le pasamos ningún argumento por default todo lo que reciba lo tratará como un <code>string</code>, si le pasamos <code>n</code>, todo lo que entre lo manejará como un número, en caso que pongamos una letra, lanzará un error el programa.</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">print</span>(<span class="hljs-string">"escribe tu nombre"</span>)
+
+<span class="hljs-keyword">local</span> nombre = <span class="hljs-built_in">io</span>.<span class="hljs-built_in">read</span>() <span class="hljs-comment">-- al no pasarle argumentos, lo que reciba será tratado como tipo string</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Hola "</span> .. nombre)
+</div></code></pre>
+<p><em>Salida</em></p>
+<pre class="hljs"><code><div>escribe tu nombre
+arturo
+Hola arturo
+</div></code></pre>
+<h4 id="alcance-de-variables-scope">Alcance de variables (Scope)</h4>
+<p>Como ya se mencionó las <code>variables</code> tienen un alcance global por default; es decir, al momento de declararlas se vuelven de ámbito global a menos que se indique lo contrario, la forma de declarar variables que solo existan en el ámbito que fue creado es con la palabra reservada <code>local</code>.</p>
+<p>Al escribir <code>local</code> indicamos que solo exista en el contexto o alcance de esa sección o estructura. Al hacer esto evitamos entrar en conflictos con otras variables que puedan existir dentro de las librerías de lua o inclusive en otros archivos que hayamos creado. Además, de ser una buena práctica.</p>
+<p><strong>Ejemplos:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Las variables que se ven declaradas aquí solo existirán dentro del documento en las instancie, fuera de este archivo nadie más puede tener acceso ni modificarlas directamente</span>
+
+<span class="hljs-keyword">local</span> a = <span class="hljs-number">3</span>
+<span class="hljs-keyword">local</span> b = <span class="hljs-number">6</span>
+
+<span class="hljs-built_in">print</span>(a+b) <span class="hljs-comment">-- 9 </span>
+
+<span class="hljs-comment">-- </span>
+
+<span class="hljs-keyword">local</span> suma = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">if</span> suma == <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-keyword">local</span> n = <span class="hljs-number">3</span> <span class="hljs-comment">-- la variable n solo existe dentro del if, fuera de él sale de su alcance</span>
+  suma = suma + n <span class="hljs-comment">-- 0 + 3</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(n) <span class="hljs-comment">-- nil</span>
+
+</div></code></pre>
+<h3 id="estructuras-de-repetici%C3%B3n-o-ciclos-loop">Estructuras de repetición o ciclos (loop)</h3>
+<p>Las estructuras de repetición son sentencias para realizar una tarea repetitiva, la cual necesitamos repetir cierta de cantidad de veces o en ocasiones infinidad de veces. Para esto contamos con <code>while</code>, <code>repeat</code> y <code>for</code>.</p>
+<h4 id="while">While</h4>
+<p>Un ciclo <code>while</code> se lee como: &quot;Mientras la condición se cumpla has ...&quot;</p>
+<p>Estructura de un <code>while</code></p>
+<pre class="hljs"><code><div>
+<span class="hljs-keyword">while</span> &lt; condición &gt; <span class="hljs-keyword">do</span> 
+  <span class="hljs-comment">-- código que se repetirá hasta que la comparación sea false</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<p><strong>Ejemplo:</strong></p>
+<ol>
+<li>Imprimir la tabla del 7, vaya 7 x 1 = 7, hasta 7 x 10 = 70. Una vez cuente hasta el 10, terminará.</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Una opción</span>
+<span class="hljs-keyword">local</span> tabla = <span class="hljs-number">7</span>
+<span class="hljs-keyword">local</span> contador = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> contador &lt;= <span class="hljs-number">10</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">local</span> multiplicacion = tabla * contador
+  <span class="hljs-built_in">print</span>(tabla .. <span class="hljs-string">"x"</span> .. contador .. <span class="hljs-string">"="</span> ..  multiplicacion)
+  contador = contador + <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- Segunda opción</span>
+<span class="hljs-keyword">local</span> contador = <span class="hljs-number">1</span>
+<span class="hljs-keyword">local</span> tabla = <span class="hljs-number">7</span>
+<span class="hljs-keyword">local</span> tope = <span class="hljs-number">7</span> * <span class="hljs-number">10</span>
+<span class="hljs-keyword">local</span> multiplicacion = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> multiplicacion &lt; tope <span class="hljs-keyword">do</span>
+  multiplicacion = tabla * contador
+  <span class="hljs-built_in">print</span>(tabla .. <span class="hljs-string">"x"</span> .. contador .. <span class="hljs-string">"="</span> ..  multiplicacion)
+  contador = contador + <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<ol start="2">
+<li>Solicitar al usuario la tabla que desea conocer y hasta donde desea conocerla.</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> contador = <span class="hljs-number">1</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Qué tabla quieres conocer?"</span>)
+<span class="hljs-keyword">local</span> tabla = <span class="hljs-built_in">io</span>.<span class="hljs-built_in">read</span>(<span class="hljs-string">"n"</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Dar el límite de la tabla?"</span>)
+<span class="hljs-keyword">local</span> tope =  <span class="hljs-built_in">io</span>.<span class="hljs-built_in">read</span>(<span class="hljs-string">"n"</span>)
+
+<span class="hljs-keyword">while</span> contador &lt;= tope <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">local</span> multiplicacion = tabla * contador
+    <span class="hljs-built_in">print</span>(tabla .. <span class="hljs-string">"x"</span> .. contador .. <span class="hljs-string">"="</span> ..  multiplicacion)
+    contador = contador + <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<h4 id="break">Break</h4>
+<p>En ocasiones por algún motivo queremos terminar un ciclo abruptamente; es decir, no necesitamos que termine, queremos cortar antes de que termine o simplemente lo hicimos infinito y por medio de algo queremos que se acabe antes. Bueno para todo esto tenemos una palabra que rompe que ciclo, llamada <code>break</code>.</p>
+<p><strong>Ejemplos:</strong></p>
+<ol>
+<li>Sumar números dados por el usuario y cuando de -1 salga, rompiendo el ciclo</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">local</span> salir = <span class="hljs-number">0</span>
+<span class="hljs-keyword">local</span> suma = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Dar un valor a sumar"</span>)
+  <span class="hljs-keyword">local</span> valor = <span class="hljs-built_in">io</span>.<span class="hljs-built_in">read</span>(<span class="hljs-string">"n"</span>)
+  suma = suma + valor
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"0) Continuar sumando\n1)Salir"</span>)
+  <span class="hljs-keyword">local</span> salir = <span class="hljs-built_in">io</span>.<span class="hljs-built_in">read</span>(<span class="hljs-string">"n"</span>)
+  <span class="hljs-keyword">if</span> salir == <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">break</span> 
+  <span class="hljs-keyword">end</span> 
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"La suma es: "</span> .. suma)
+</div></code></pre>
+<p><em>Nota: Este ejercicio hay muchas otras formas de realizarlo, pero para ejemplificar el uso de <code>break</code>.</em></p>
+<h2 id="referencias">Referencias</h2>
+<p><a href="https://www.lua.org/manual/5.1/es/manual.html">Manual de Lua en español</a></p>
 
 </body>
 </html>
