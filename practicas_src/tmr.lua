@@ -1,1 +1,0 @@
--- Aplicaciones correcta de manejar eventos con tmr:alarm
