@@ -1,15 +1,65 @@
 ## Pendientes
 
-- Requerimientos minimos los proyectos aprobados
-- Agregar la explicacion de funciones al libro
-- Agregar más practicas para video con PWM
-- BANCO DE PROYECTOS
-- agregar tareas para el 20
-  - I2C
-  - UART
-  - ONE WIRE
+- [ ] Requerimientos minimos los proyectos aprobados
+- [ ] Agregar más practicas para video con PWM
+- [ ] BANCO DE PROYECTOS --- 
+- [ ] agregar tareas para el 20
+  - [ ] I2C
+  - [ ] UART
+  - [ ] ONE WIRE
   - 
 
 videos del curso, sensores
 
-Con 
+## Prácticas
+
+- Configuración de pines
+- Encender y apagar LED
+- Manejo de terminal
+- Secuencia de leds básico
+- IF, IF-ELSE
+  - On-off
+  - Blink
+  - Sensor PIR
+  - incrementa el numero con 7-Seg por cada pulso
+  - Switch magnetico
+- Ciclos
+  - Secuencia de led avanzada
+    - Variantes
+  - Semáforo
+    - Semáforo doble
+  - Incremento de parpadeo, por cada que presione un boton incremente el numero de parpadeos
+  - Incrementa infinitamente y reinicia
+- LCD
+- Ultrasonico
+- Serial
+  - LCD serial
+  <!-- - DTH11 (Humedad y temp) -->
+  - DS1820 (TEMP)
+- Motores 
+  - DC
+  - PAP
+- PWM
+  - Led RGB
+  - SERVO
+- ADC
+  - LM35
+  - Sensor de flama
+  - LDR
+  - Sensor de gas (MQ-2)
+  - [Humedad](https://wiki.dfrobot.com/Moisture_Sensor__SKU_SEN0114_)
+  - Microfono
+- WIFI
+  - http
+  - client
+  - server
+  - mqqt
+  - Herramientas web
+    - IFFT
+    - Telegram
+    - mosquito
+    - firebase (checar las reglas para escribir en db)
+  - Controlar un led desde el servidor
+  - Controlar 2 leds desde el servidor
+  - Controlar display de 7 segmentos eligiendo cada digito
+  - Cuando se precione un boton se vea reflejado en la pagina*

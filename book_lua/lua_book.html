@@ -378,6 +378,9 @@ blockquote {
 </head>
 <body>
 <h1 id="lua">Lua</h1>
+<blockquote>
+<p>Autor: <a href="https://www.alejandro-leyva.com/">Alejandro Leyva</a></p>
+</blockquote>
 <h2 id="instalaci%C3%B3n-y-configuraci%C3%B3n-del-entorno">Instalación y configuración del entorno</h2>
 <h3 id="windows">Windows</h3>
 <p>Hay varias formas de instalación del intérprete de Lua, pero la forma más sencilla es descargar los archivos compilados o binario del sitio oficial para la versión de Windows (<a href="http://luabinaries.sourceforge.net/download.html">Descargar</a> (<em>Descargar para la versión de sistema operativo y que indique que es la versión ejecutable</em>).</p>
@@ -1304,6 +1307,47 @@ Hola arturo
 <span class="hljs-built_in">print</span>(<span class="hljs-string">"La suma es: "</span> .. suma)
 </div></code></pre>
 <p><em>Nota: Este ejercicio hay muchas otras formas de realizarlo, pero para ejemplificar el uso de <code>break</code>.</em></p>
+<h3 id="funciones">Funciones</h3>
+<p>Las funciones en Lua son consideradas de primer nivel (si tienes conocimientos de javascript, son iguales). Una función sirven para muchas cosas, como: reducir código, estructurar mejor el código, más organizado, creación de objetos. Aquí solo se usará para tener mejor organizado y estructurado el código.</p>
+<p>Toda función comienza con la palabra reservada <code>function</code> seguido del nombre que tendrá, seguido de parentesis, en caso de que la función necesite recibir parametros para funcionar o hacer su tarea, se agregan los <code>argumentos</code> necesarios, separador por coma, se pueden recibir cualquier cantidad de ellos; dentro de la función se coloca todo el código que se necesite y se termina con <code>end</code>, lo cual indica que ahí termina la función</p>
+<p>Las funciones para su declaración siguen la convención <code>CalmeCase</code>; para nombar una función se realiza con un verbo, el cual describe lo que hace; para invocar una función se escribe su nombre con los parentesis; en caso que reciba argumentos, hay que darle los valores para que la función pueda realizar su tarea.</p>
+<p><strong>Estructura</strong></p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nombreFuncion</span><span class="hljs-params">(arg1, arg2, arg3)</span></span>
+
+  <span class="hljs-comment">-- bloque de código</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-comment">-- opcional</span>
+<span class="hljs-keyword">end</span>
+</div></code></pre>
+<p><strong>Ejemplos:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Función que manda un saludo</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">saludo</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Hola, bienvenido"</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- Función que manda un saludo y recibiendo un argumento</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">saludoPara</span><span class="hljs-params">(nombre)</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">"Hola, bienvenido "</span> .. nombre)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- Función que realiza una operación y regresa un valor</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">suma</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-keyword">local</span> resultado = a + b
+  <span class="hljs-keyword">return</span> resultado
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- Función para cálcular el área de un rectángulo</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">areaRectangulo</span><span class="hljs-params">(base, altura)</span></span>
+  <span class="hljs-keyword">local</span> area = base * altura
+  <span class="hljs-keyword">return</span> area
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- Ahora se utilizarán las funciones dentro del código</span>
+
+saludo() <span class="hljs-comment">-- Hola, bienvenido</span>
+saludoPara(<span class="hljs-string">"Francisco"</span>) <span class="hljs-comment">-- Hola, bienvenido Francisco</span>
+suma(<span class="hljs-number">3</span>, <span class="hljs-number">7</span>) <span class="hljs-comment">-- 10</span>
+areaRectangulo(<span class="hljs-number">5</span> , <span class="hljs-number">3</span>) <span class="hljs-comment">-- 15</span>
+</div></code></pre>
 <h2 id="referencias">Referencias</h2>
 <p><a href="https://www.lua.org/manual/5.1/es/manual.html">Manual de Lua en español</a></p>
 
