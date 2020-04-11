@@ -935,7 +935,9 @@ print("La suma es: " .. suma)
 
 Las funciones en Lua son consideradas de primer nivel (si tienes conocimientos de javascript, son iguales). Una función sirven para muchas cosas, como: reducir código, estructurar mejor el código, más organizado, creación de objetos. Aquí solo se usará para tener mejor organizado y estructurado el código.
 
-Toda función comienza con la palabra reservada `function` seguido del nombre que tendrá, seguido de parentesis, en caso de que la función necesite recibir parametros para funcionar o hacer su tarea, se agregan los `argumentos` necesarios, dentro de la función se coloca todo el código que se necesite y se termina con `end`, lo cual indica que ahí termina la función
+Toda función comienza con la palabra reservada `function` seguido del nombre que tendrá, seguido de parentesis, en caso de que la función necesite recibir parametros para funcionar o hacer su tarea, se agregan los `argumentos` necesarios, separador por coma, se pueden recibir cualquier cantidad de ellos; dentro de la función se coloca todo el código que se necesite y se termina con `end`, lo cual indica que ahí termina la función
+
+Las funciones para su declaración siguen la convención `CalmeCase`; para nombar una función se realiza con un verbo, el cual describe lo que hace; para invocar una función se escribe su nombre con los parentesis; en caso que reciba argumentos, hay que darle los valores para que la función pueda realizar su tarea.
 
 **Estructura**
 
@@ -951,8 +953,34 @@ end
 
 ```lua
 -- Función que manda un saludo
-```
+function saludo()
+  print("Hola, bienvenido")
+end
 
+-- Función que manda un saludo y recibiendo un argumento
+function saludoPara(nombre)
+  print("Hola, bienvenido " .. nombre)
+end
+
+-- Función que realiza una operación y regresa un valor
+function suma(a, b)
+  local resultado = a + b
+  return resultado
+end
+
+-- Función para cálcular el área de un rectángulo
+function areaRectangulo(base, altura)
+  local area = base * altura
+  return area
+end
+
+-- Ahora se utilizarán las funciones dentro del código
+
+saludo() -- Hola, bienvenido
+saludoPara("Francisco") -- Hola, bienvenido Francisco
+suma(3, 7) -- 10
+areaRectangulo(5 , 3) -- 15
+```
 
 ## Referencias
 
