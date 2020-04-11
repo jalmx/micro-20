@@ -9,7 +9,8 @@
 - [ ] LCD I2C
 - [x] Flama
 - [ ] PIR
-- [ ] LDR
+- [x] LDR
+- [x] PWM
 - [ ] Microfono
 - [ ] Buzzer
 - [ ] MQ-2 Gas

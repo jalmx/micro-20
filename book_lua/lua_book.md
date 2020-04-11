@@ -1,5 +1,7 @@
 # Lua
 
+> Autor: [Alejandro Leyva](https://www.alejandro-leyva.com/) 
+
 ## Instalación y configuración del entorno
 
 ### Windows
@@ -928,6 +930,29 @@ end
 print("La suma es: " .. suma)
 ```
 *Nota: Este ejercicio hay muchas otras formas de realizarlo, pero para ejemplificar el uso de `break`.*
+
+### Funciones
+
+Las funciones en Lua son consideradas de primer nivel (si tienes conocimientos de javascript, son iguales). Una función sirven para muchas cosas, como: reducir código, estructurar mejor el código, más organizado, creación de objetos. Aquí solo se usará para tener mejor organizado y estructurado el código.
+
+Toda función comienza con la palabra reservada `function` seguido del nombre que tendrá, seguido de parentesis, en caso de que la función necesite recibir parametros para funcionar o hacer su tarea, se agregan los `argumentos` necesarios, dentro de la función se coloca todo el código que se necesite y se termina con `end`, lo cual indica que ahí termina la función
+
+**Estructura**
+
+```lua
+function nombreFuncion(arg1, arg2, arg3)
+
+  -- bloque de código
+  return -- opcional
+end
+```
+
+**Ejemplos:**
+
+```lua
+-- Función que manda un saludo
+```
+
 
 ## Referencias
 
