@@ -1,11 +1,11 @@
-delayms = 400
-LEDpin = 1
-LEDstate = 0
+local delayms = 400
+local LEDpin = 1
+local LEDstate = true
 
 gpio.mode(LEDpin, gpio.OUTPUT)
 
 function tog()
-    if (LEDstate) then
+    if LEDstate then
         gpio.write(LEDpin, gpio.LOW)
         print(0)
     else
