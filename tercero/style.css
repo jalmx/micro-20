@@ -1,0 +1,61 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-size: 16px;
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    margin: auto; 
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.buttons {
+    margin: auto; 
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.red {
+    background: red;
+    color: white;
+}
+
+.red-dark {
+    background: #610B0B;
+    color: white;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.yellow-dark {
+    background-color: #5E610B;
+    color: white;
+}
+
+.green {
+    background-color: #3ADF00;
+}
+
+.green-dark {
+    background-color: #21610B;
+    color: white;
+}
