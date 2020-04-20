@@ -23,7 +23,7 @@ waiting:alarm(
         status = not status
     end
 )
------
+
 --- Configuro los valores para conectarme al MODEM
 wifi.sta.sethostname("ESP-MAIN") -- le doy nombre al micro
 
@@ -45,16 +45,53 @@ wifi.sta.autoconnect(1)
 
 --- TERMINA LA CONFIGURACIÓN Y CONEXIÓN DEL WI-FI AL MODEM
 -- Configuración del pin en donde estará el LED
-local led = 2
-
+local led = 2 
 gpio.mode(led, 0) -- configuro como salida
-gpio.write(led, 0) -- apago el led
+gpio.write(led, 0) -- apago el led 
 
---- SE CREA EL SERVIDOR
+-- declaracion de variables
 local ledStatusOn = "Encendido"
 local ledStatusOff = "Apagado"
 local ledStatus = ledStatusOff
+local claseRed = "red"
+local claseRedDark = claseRed .. "-dark"
+local clase = claseRedDark
+local on , off = "on", "off"
+local orden = on
 
+-- configuración del boton
+local boton = 1
+gpio.mode(boton, 1) -- configuro como entrada
+gpio.mode(boton, gpio.INT)
+
+local statusLed = true
+
+local function pinCk(level, when) 
+    gpio.trig(boton, "none") 
+    tmr.delay(250000)
+
+    if statusLed then 
+        print("prender")
+        gpio.write(led,1)
+        ledStatus = ledStatusOn
+        clase = claseRed
+        orden = off
+    else 
+        print("apagar")
+        gpio.write(led,0) 
+        ledStatus = ledStatusOff
+        clase = claseRedDark
+        orden = on
+    end
+    statusLed = not statusLed
+
+    gpio.trig(boton, "up", pinCk)
+end
+
+gpio.trig(boton, "up", pinCk)
+-- Fin de disparo del botón 
+
+--- SE CREA EL SERVIDOR
 srv = net.createServer(net.TCP) 
 srv:listen(
     80,
@@ -67,9 +104,13 @@ srv:listen(
                 if GET.pin == "on" then
                     gpio.write(led,1)
                     ledStatus = ledStatusOn
+                    clase = claseRed
+                    orden = off
                 elseif GET.pin == "off" then
                     gpio.write(led,0) 
                     ledStatus = ledStatusOff
+                    clase = claseRedDark
+                    orden = on
                 end
 
                 local html =  [[
@@ -78,23 +119,21 @@ srv:listen(
                     <head>
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <meta http-equiv="refresh" content="5;URL=/">
+                        <meta http-equiv="refresh" content="2;URL=/">                        
                         <title>Control de un LED</title>
                         <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/tercero/style.css">
                     </head>
                     <body>
                         <h1>Control de LEDs</h1>
                         <div class="buttons">
-                            <a class="button red" href="/?pin=on" >Encender LED</a>
-                            <a class="button red-dark" href="/?pin=off" >Apagar LED</a>
+                            <a class="button ]] .. clase .. [[" href="/?pin=]].. orden .. [[" >]]..orden .. [[ LED</a> 
                         </div>
                         <h2>
                             Estado del Led Rojo: <span>]] ..ledStatus .. [[</span> 
                         </h2> 
                     </body>
                     </html>
-                ]]
-
+                ]] 
                 conn:send(data.getHeader())
                 conn:send(html) 
                 conn:on(

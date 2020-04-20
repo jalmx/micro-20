@@ -74,8 +74,9 @@ srv:listen(
                         <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/tercero/style.css">
                     </head>
                     <body style="background-color: black; height: 100vh;">
-                    <h1 class="segment_red">T e m p e r a t u r a</h1>
-                    <h1 class="segment_red">
+                    <h2 class="segment_red">NODEMCU ESP8266</h1>
+                    <h2 class="segment_red">T e m p e r a t u r a</h1>
+                    <h2 class="segment_red">
                         ]].. temp..[[ &#164 C
                     </h1>
                     </body>
