@@ -14,14 +14,20 @@ h1 {
     padding: 1rem 0;
 }
 
+span{
+    text-decoration: underline;
+}
+
 .button {
     display: inline-block;
     text-decoration: none;
     padding: 1rem 1rem;
     border-radius: 10px;
     font-weight: bold;
-    color: black;
+    color: white;
     text-align: center;
+    background-color: black ;
+    margin-bottom: .5rem;
 }
 
 .buttons {
@@ -44,6 +50,7 @@ h1 {
 
 .yellow {
     background-color: yellow;
+    color: black;
 }
 
 .yellow-dark {
@@ -53,6 +60,7 @@ h1 {
 
 .green {
     background-color: #3ADF00;
+    color: black;
 }
 
 .green-dark {
