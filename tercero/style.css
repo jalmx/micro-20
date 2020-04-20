@@ -2,6 +2,11 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+@font-face {
+    font-family: "segments";
+    src: url("segment_font.ttf");
+}
+
 body {
     font-size: 16px;
     width: 80%;
@@ -9,12 +14,12 @@ body {
 }
 
 h1 {
-    margin: auto; 
+    margin: auto;
     text-align: center;
     padding: 1rem 0;
 }
 
-span{
+span {
     text-decoration: underline;
 }
 
@@ -26,12 +31,12 @@ span{
     font-weight: bold;
     color: white;
     text-align: center;
-    background-color: black ;
+    background-color: black;
     margin-bottom: .5rem;
 }
 
 .buttons {
-    margin: auto; 
+    margin: auto;
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
@@ -41,6 +46,28 @@ span{
 .red {
     background: red;
     color: white;
+}
+
+.segment_red {
+    background: black;
+    color: red;
+    text-align: center;
+    font-size: 5rem;
+    font-family: "segments";
+}
+
+.segment_yellow {
+    background: black;
+    color: yellow;
+    text-align: center;
+    font-size: 5rem;
+}
+
+.segment_green {
+    background: black;
+    color: rgb(0, 202, 0);
+    text-align: center;
+    font-size: 5rem;
 }
 
 .red-dark {

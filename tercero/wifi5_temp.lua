@@ -1,6 +1,5 @@
 --========== CONECTADO AL MODEM ========
--- CONTROL DE UN LED, CON BOTÓN REMOTO Y LOCAL
----
+-- Sensor de temperatura LM35
 local data = dofile("data.lc") -- importo una libreria
 
 -- Configuro el mensaje de conexión
@@ -44,58 +43,47 @@ wifi.sta.config(station_cfg)
 wifi.sta.autoconnect(1)
 
 --- TERMINA LA CONFIGURACIÓN Y CONEXIÓN DEL WI-FI AL MODEM
--- Configuración del pin en donde estará el LED
-local led = 2
+---===================
+---- Configuraciones básicas
+adc.force_init_mode(adc.INIT_ADC) -- por buenas prácticas se inicia el adc
 
-gpio.mode(led, 0) -- configuro como salida
-gpio.write(led, 0) -- apago el led
+local function getTemperature()
+    return string.format("%.2f", (adc.read(0) - 3) * (330 / 1024)) 
+end
 
 --- SE CREA EL SERVIDOR
-local ledStatusOn = "Encendido"
-local ledStatusOff = "Apagado"
-local ledStatus = ledStatusOff
 
-srv = net.createServer(net.TCP) 
+srv = net.createServer(net.TCP)
 srv:listen(
     80,
     function(conn)
         conn:on(
             "receive",
             function(conn, request)
-                local GET = data.getData(request)
+                local temp = getTemperature()
 
-                if GET.pin == "on" then
-                    gpio.write(led,1)
-                    ledStatus = ledStatusOn
-                elseif GET.pin == "off" then
-                    gpio.write(led,0) 
-                    ledStatus = ledStatusOff
-                end
-
-                local html =  [[
+                local html =
+                    [[
                     <!DOCTYPE html>
                     <html lang="en">
                     <head>
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>Control de un LED</title>
+                        <meta http-equiv="refresh" content="2;URL=/">
+                        <title>Temperatura LM35</title>
                         <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/tercero/style.css">
                     </head>
                     <body>
-                        <h1>Control de LEDs</h1>
-                        <div class="buttons">
-                            <a class="button red" href="/?pin=on" >Encender LED</a>
-                            <a class="button red-dark" href="/?pin=off" >Apagar LED</a>
-                        </div>
-                        <h2>
-                            Estado del Led Rojo: <span>]] ..ledStatus .. [[</span> 
-                        </h2> 
+                    <h1 class="segment_red">T e m p e r a t u r a</h1>
+                    <div class="segment_red">
+                        ]].. temp..[[&#164C
+                    </div>
                     </body>
                     </html>
                 ]]
 
                 conn:send(data.getHeader())
-                conn:send(html) 
+                conn:send(html)
                 conn:on(
                     "sent",
                     function(sck)
