@@ -61,7 +61,7 @@ srv:listen(
             "receive",
             function(conn, request)
                 local temp = getTemperature()
-
+                print("Temp: " .. temp)
                 local html =
                     [[
                     <!DOCTYPE html>
@@ -73,11 +73,11 @@ srv:listen(
                         <title>Temperatura LM35</title>
                         <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/tercero/style.css">
                     </head>
-                    <body>
+                    <body style="background-color: black; height: 100vh;">
                     <h1 class="segment_red">T e m p e r a t u r a</h1>
-                    <div class="segment_red">
-                        ]].. temp..[[&#164C
-                    </div>
+                    <h1 class="segment_red">
+                        ]].. temp..[[ &#164 C
+                    </h1>
                     </body>
                     </html>
                 ]]
