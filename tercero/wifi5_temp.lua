@@ -82,7 +82,6 @@ srv:listen(
                     </body>
                     </html>
                 ]]
-
                 conn:send(data.getHeader())
                 conn:send(html)
                 conn:on(

@@ -1,7 +1,8 @@
  # Tareas micro
 
-Qué es una raspberry pi
-
+MQTT
+HTTP
+CLIENTE SERVIDOR
 
 # Curso nodemcu
 
@@ -18,12 +19,17 @@ Qué es una raspberry pi
    -  a
    -  h1
    -  h2
+   -  img
 - que es cliente/servidor
 - configuración del micro como cliente
 - configuración del micro como cliente/acces point
   - Configuracion como cliente
   - Configuracion como acces point
   - Configuracion como acces point/cliente
+  - Recarga automatica
+  - Local y remoto
 - mqtt
-  - app celcular
-  - app internet
+  - app android
+  - app dashboard web
+  - android como broker
+  - mqtt IFTTT
