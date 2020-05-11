@@ -8,7 +8,7 @@ waiting:alarm(500, tmr.ALARM_AUTO, function() print("Conectando...") end)
 wifi.sta.sethostname("ESP-MAIN") -- le doy nombre al micro 
 
 wifi.setmode(wifi.STATION) -- primero se define como cliente
-station_cfg={ssid="CapitanAmerica",pwd="vengadores"} 
+station_cfg={ssid="IronMan",pwd="vengadores"} 
 
 station_cfg.got_ip_cb = 
 function (data) 

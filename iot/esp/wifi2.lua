@@ -28,7 +28,7 @@ waiting:alarm(
 wifi.sta.sethostname("ESP-MAIN") -- le doy nombre al micro
 
 wifi.setmode(wifi.STATION) -- primero se define como cliente
-station_cfg = {ssid = "CapitanAmerica", pwd = "vengadores"}
+station_cfg = {ssid = "IronMan", pwd = "vengadores"}
 
 station_cfg.got_ip_cb = function(data)
     waiting:unregister() -- desactivo el anuncio de conectando
@@ -79,7 +79,7 @@ srv:listen(
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <title>Control de un LED</title>
-                        <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/tercero/style.css">
+                        <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/iot/esp/style.css">
                     </head>
                     <body>
                         <h1>Control de LEDs</h1>

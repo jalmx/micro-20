@@ -91,7 +91,7 @@ srv:listen(
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <title>Control de un LED</title>
-                        <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/tercero/style.css">
+                        <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/iot/esp/style.css">
                     </head>
                     <body>
                         <h1>Control de LEDs</h1>
