@@ -1,37 +1,47 @@
---========== CONECTADO AL MODEM 
+--========== CONECTADO AL MODEM
 
 -- Configuro el mensaje de conexión
 local waiting = tmr.create()
-waiting:alarm(500, tmr.ALARM_AUTO, function() print("Conectando...") end)
+waiting:alarm(
+    500,
+    tmr.ALARM_AUTO,
+    function()
+        print("Conectando...")
+    end
+)
 -----
 --- Configuro los valores para conectarme al MODEM
-wifi.sta.sethostname("ESP-MAIN") -- le doy nombre al micro 
+wifi.sta.sethostname("ESP-MAIN") -- le doy nombre al micro
 
 wifi.setmode(wifi.STATION) -- primero se define como cliente
-station_cfg={ssid="IronMan",pwd="vengadores"} 
+station_cfg = {ssid = "IronMan", pwd = "vengadores"}
 
-station_cfg.got_ip_cb = 
-function (data) 
+station_cfg.got_ip_cb = function(data)
     waiting:unregister() -- desactivo el anuncio de conectando
-    ip = data.IP 
+    ip = data.IP
     print("My IP: " .. ip)
 end
 
-station_cfg.auto=true
-station_cfg.save=true
-wifi.sta.config(station_cfg) 
+station_cfg.auto = true
+station_cfg.save = true
+wifi.sta.config(station_cfg)
 
-wifi.sta.autoconnect(1) 
+wifi.sta.autoconnect(1)
 
 --- TERMINA LA CONFIGURACIÓN Y CONEXIÓN DEL WI-FI AL MODEM
 
 --- SE CREA EL SERVIDOR
-srv=net.createServer(net.TCP)
+srv = net.createServer(net.TCP)
 
-srv:listen(80 ,function(conn)
-   conn:on("receive",function(conn,request)
-      print(request)
-      conn:send([[
+srv:listen(
+    80,
+    function(conn)
+        conn:on(
+            "receive",
+            function(conn, request)
+                print(request)
+                conn:send(
+                    [[ 
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -46,8 +56,16 @@ srv:listen(80 ,function(conn)
             <img src="https://raw.githubusercontent.com/jalmx/mecatronica85/master/imgs/lg_85.png" alt="foto">
         </body>
         </html>
-      ]])
-      
-      conn:on("sent", function(sck) sck:close() end)
-     end) 
-end) 
+      ]]
+                )
+
+                conn:on(
+                    "sent",
+                    function(sck)
+                        sck:close()
+                    end
+                )
+            end
+        )
+    end
+)
