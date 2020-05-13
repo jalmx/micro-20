@@ -1,5 +1,4 @@
 --========== CONECTADO AL MODEM
-
 -- Configuro el mensaje de conexión
 local waiting = tmr.create()
 waiting:alarm(
@@ -13,8 +12,11 @@ waiting:alarm(
 --- Configuro los valores para conectarme al MODEM
 wifi.sta.sethostname("ESP-MAIN") -- le doy nombre al micro
 
-wifi.setmode(wifi.STATION) -- primero se define como cliente
-station_cfg = {ssid = "IronMan", pwd = "vengadores"}
+wifi.setmode(wifi.STATION) -- primero se define como cliente STATION
+station_cfg = { -- creo la tabla con los datos de mi MODEM
+    ssid = "IronMan",
+    pwd = "vengadores"
+}
 
 station_cfg.got_ip_cb = function(data)
     waiting:unregister() -- desactivo el anuncio de conectando
@@ -22,8 +24,6 @@ station_cfg.got_ip_cb = function(data)
     print("My IP: " .. ip)
 end
 
-station_cfg.auto = true
-station_cfg.save = true
 wifi.sta.config(station_cfg)
 
 wifi.sta.autoconnect(1)
@@ -53,7 +53,10 @@ srv:listen(
         <body>
             <h1>Servidor en ESP8266 Node MCU con Lua</h1> 
             <h2>Bienvenidos todos a Mecatrónica 85 - IoT</h2>
-            <img src="https://raw.githubusercontent.com/jalmx/mecatronica85/master/imgs/lg_85.png" alt="foto">
+            <p style="text-align: center; background-color: white">
+            <img src="https://raw.githubusercontent.com/jalmx/mecatronica85/master/imgs/lg_85.png" width="50%" alt="foto">
+            </p>
+            
         </body>
         </html>
       ]]
