@@ -4,7 +4,7 @@
 local data = dofile("data.lc") -- importo una libreria
 
 -- Configuro el mensaje de conexión
-local status = true
+local status = true --variable me ayuda a parpadear el LED
 local ledWaiting = 8
 gpio.mode(ledWaiting, 0)
 
@@ -37,8 +37,6 @@ station_cfg.got_ip_cb = function(data)
     print("My IP: " .. ip)
 end
 
-station_cfg.auto = true
-station_cfg.save = true
 wifi.sta.config(station_cfg)
 
 wifi.sta.autoconnect(1)
@@ -54,6 +52,7 @@ gpio.write(led, 0) -- apago el led
 local ledStatusOn = "Encendido"
 local ledStatusOff = "Apagado"
 local ledStatus = ledStatusOff
+local contador = 0
 
 srv = net.createServer(net.TCP) 
 srv:listen(
@@ -64,14 +63,16 @@ srv:listen(
             function(conn, request)
                 local GET = data.getData(request)
 
-                if GET.pin == "on" then
+                if GET.led == "on" then
                     gpio.write(led,1)
                     ledStatus = ledStatusOn
-                elseif GET.pin == "off" then
+                    contador = contador +1
+                elseif GET.led == "off" then
                     gpio.write(led,0) 
                     ledStatus = ledStatusOff
+                    contador = contador +1
                 end
-
+               
                 local html =  [[
                     <!DOCTYPE html>
                     <html lang="en">
@@ -84,12 +85,16 @@ srv:listen(
                     <body>
                         <h1>Control de LEDs</h1>
                         <div class="buttons">
-                            <a class="button red" href="/?pin=on" >Encender LED</a>
-                            <a class="button red-dark" href="/?pin=off" >Apagar LED</a>
+                            <a class="button red" href="/?led=on" >Encender LED</a>
+                            <a class="button red-dark" href="/?led=off" >Apagar LED</a>
                         </div>
                         <h2>
                             Estado del Led Rojo: <span>]] ..ledStatus .. [[</span> 
                         </h2> 
+                        <p>
+                            Contador: ]].. string.format("%.0f", contador)  ..
+                        [[
+                        </p>
                     </body>
                     </html>
                 ]]

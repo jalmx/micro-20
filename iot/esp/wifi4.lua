@@ -48,8 +48,6 @@ station_cfg.got_ip_cb = function(data)
     print("My IP: " .. ip)
 end
 
-station_cfg.auto = true
-station_cfg.save = true
 wifi.sta.config(station_cfg)
 wifi.sta.autoconnect(1)
 ------

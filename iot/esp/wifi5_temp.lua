@@ -71,7 +71,7 @@ srv:listen(
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <meta http-equiv="refresh" content="2;URL=/">
                         <title>Temperatura LM35</title>
-                        <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/tercero/style.css">
+                        <link rel="stylesheet" href="https://www.alejandro-leyva.com/micro-20/iot/esp/style.css">
                     </head>
                     <body style="background-color: black; height: 100vh;">
                     <h2 class="segment_red">NODEMCU ESP8266</h1>
