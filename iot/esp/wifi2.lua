@@ -24,9 +24,7 @@ waiting:alarm(
     end
 )
 -----
---- Configuro los valores para conectarme al MODEM
-wifi.sta.sethostname("ESP-MAIN") -- le doy nombre al micro
-
+--- Configuro los valores para conectarme al MODEM 
 wifi.setmode(wifi.STATION) -- primero se define como cliente
 station_cfg = {ssid = "IronMan", pwd = "vengadores"}
 
