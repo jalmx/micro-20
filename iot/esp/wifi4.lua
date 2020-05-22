@@ -26,7 +26,7 @@ waiting:alarm(
 -----
 wifi.setmode(wifi.STATIONAP)
 
--- CONFIGURANDO ESTACIÓN
+-- CONFIGURANDO ACCESS POINT
 cfg = {}
 cfg.ssid = "ESP-MODULO" -- nombre con el que aparecera la red del ESP
 cfg.pwd = "superpassword" -- contraseña del módulo
@@ -37,9 +37,7 @@ print("ip\tnetmask \t gateway")
 print(wifi.ap.getip()) -- manda a imprimir en que ip me debo conectar
 
 --- CONFIGURANDO CLIENTE
-wifi.sta.sethostname("ESP-MAIN") -- le doy nombre al micro
-
-station_cfg = {ssid = "CapitanAmerica", pwd = "vengadores"}
+station_cfg = {ssid = "IronMan", pwd = "vengadores"}
 
 station_cfg.got_ip_cb = function(data)
     waiting:unregister() -- desactivo el anuncio de conectando

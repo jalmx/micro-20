@@ -1,6 +1,5 @@
 -- CONFIGURACIÓN COMO ACCESS POINT o ESTACIÓN
--- CONTROLANDO UN LED
-
+-- CONTROLANDO UN LED 
 local data = dofile("data.lc") -- importo una libreria
 
 -- CONFIGURANDO ACCESS POINT
