@@ -3,6 +3,12 @@ local status = true
 local ledWaiting = 8
 gpio.mode(ledWaiting, 0)
 
+adc.force_init_mode(adc.INIT_ADC) -- por buenas prácticas se inicia el adc
+
+local function getTemperature()
+    return string.format("%.2f", (adc.read(0) - 62) * (330 / 1024))
+end
+
 local waiting = tmr.create()
 waiting:alarm(
     1000,
@@ -25,10 +31,8 @@ gpio.mode(led, 0)
 gpio.write(led, 0)
 
 --- Configuro los valores para conectarme al MODEM
-wifi.sta.sethostname("ESP-MAIN") -- le doy nombre al micro
-
 wifi.setmode(wifi.STATION) -- primero se define como cliente
-station_cfg = {ssid = "CapitanAmerica", pwd = "vengadores"}
+station_cfg = {ssid = "IronMan", pwd = "vengadores"}
 
 station_cfg.got_ip_cb = function(data)
     waiting:unregister() -- desactivo el anuncio de conectando
@@ -37,21 +41,45 @@ station_cfg.got_ip_cb = function(data)
     print("My IP: " .. ip)
 end
 
-station_cfg.auto = true
-station_cfg.save = true
 wifi.sta.config(station_cfg)
-
 wifi.sta.autoconnect(1)
+---==========
+
 ------============
 -- Configuración de MQTT
-local status = false
-client = mqtt.Client(node.chipid(), 120)
+local status = false -- me indica el estado de la conecion al broker
+local user = "xizuth-home"
+local pass = "12345678"
+local client = mqtt.Client("ESP8266-" .. node.chipid(), 120, user, pass)
+----==
+-- GENERO LA TIMER PARA MANDAR LA TEMPERATURA
+
+local alarmTemp = tmr.create()
+alarmTemp:alarm(
+    2000,
+    tmr.ALARM_AUTO,
+    function()
+        if client ~= nil and status then
+            local temp = getTemperature()
+            print("Temp: " .. temp)
+            client:publish(
+                "xizuth/temp",
+                temp,
+                0,
+                0,
+                function()
+                    print("Temp sent")
+                end
+            )
+        end
+    end
+)
 
 --callback on connect and disconnects
 client:on(
     "connect",
     function(con)
-        print("connected")
+        print("connected to broker :D")
         status = true
     end
 )
@@ -59,6 +87,7 @@ client:on(
     "offline",
     function(con)
         print("offline")
+        alarmTemp:unregister()
         status = false
     end
 )
@@ -67,63 +96,43 @@ client:on(
     "message",
     function(conn, topic, data)
         if data ~= nil then
-            print(type(data))
-            print(data)
-            print("topic:\t" ..topic)
-            if topic == "xizuth/push" then
-                print("xizuth/push:" .. data)
-                if data == "0" then
-                    gpio.write(led, 0)
-                    conn:publish("xizuth/led",0,0,0,function(conn) print("se apago led") end)
-                elseif data == "1" then
+            if topic == "xizuth/sw" then
+                if data == "1" then
                     gpio.write(led, 1)
-                    conn:publish("xizuth/led",1,0,0,function(conn) print("se prende led") end)
+                elseif data == "0" then
+                    gpio.write(led, 0)
                 end
-            end
-
-            if topic == "xizuth/slider" then
-                print("xizuth/slider:" .. data)
+            elseif topic == "xizuth/mg" then
+                print("Message: " .. data)
+            elseif topic == "xizuth/rgb" then
+                print("Slider: " .. data)
             end
         end
     end
 )
--- broker.hivemq.com
--- mqtt.eclipse.org
--- test.mosquitto.org
+
+local host = "broker.shiftr.io"
+local port = 1883
 
 client:connect(
-    "broker.hivemq.com",
-    1883,
+    host,
+    port,
     false,
     function(conn)
-        print("connected")
+        print("connected to broker")
+        status = true
         client:subscribe(
-            "xizuth/",
+            "xizuth/mg",
             0,
             function(conn)
-                client:publish(
-                    "xizuth/",
-                    "Hello from LUA - PRUEBA EXITOSA",
-                    0,
+                print("connected to message")
+                client:subscribe(
+                    "xizuth/sw",
                     0,
                     function(conn)
-                        print("sent")
+                        print("connected to xizuth/sw")
                     end
                 )
-            end
-        )
-        client:subscribe(
-            "xizuth/slider",
-            0,
-            function(conn)
-                print("conectado al slider")
-            end
-        )
-        client:subscribe(
-            "xizuth/push",
-            0,
-            function(conn)
-                print("conectado al push")
             end
         )
     end
