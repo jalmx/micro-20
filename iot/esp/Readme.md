@@ -43,7 +43,13 @@ Por default se sabe que los puertos 1883 son `sin encriptación`, puertos 8883 `
   - 8083
   - 8084 (SSL)
 
-## [ioticos](https://ioticos.org/)
-
 **Mejores prácticas para topics** https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/
 
+## Others Brokers
+
+- [ioticos](https://ioticos.org/)
+- [flespi](https://flespi.com/mqtt-broker)
+- [dioty](http://www.dioty.co/)
+- [iotwithus](https://www.iotwithus.com/free-mqtt-server/)
+- [mqtt.su](https://www.mqtt.su/index.php)
+- [List brokers](https://github.com/mqtt/mqtt.github.io/wiki/public_brokers)
